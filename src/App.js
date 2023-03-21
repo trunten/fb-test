@@ -7,6 +7,7 @@ import { useRef, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { serverTimestamp } from 'firebase/firestore';
+import Linkify from 'react-linkify';
 
 firebase.initializeApp({
   apiKey: "AIzaSyCJgHol-1pbIB50efAeX_noBkvxl2DnF_w",
@@ -104,10 +105,11 @@ function ChatRoom() {
 function ChatMessage(props) {
   const { text, uid, photoURL } = props.message;
   const className = uid === auth.currentUser.uid ? "sent" : "received";
+
   return (
     <div className={`message ${className}`}>
       <img src={photoURL} alt="avatar" />
-      <p>{text}</p>
+      <p><Linkify>{text}</Linkify></p>
     </div>
   )
 }
