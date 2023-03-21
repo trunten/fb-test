@@ -8,7 +8,8 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 firebase.initializeApp({
   apiKey: "AIzaSyCJgHol-1pbIB50efAeX_noBkvxl2DnF_w",
-  authDomain: "fir-test-5b807.firebaseapp.com",
+  // authDomain: "fir-test-5b807.firebaseapp.com",
+  authDomain: "https://main--fantastic-creponne-4b2875.netlify.app",
   projectId: "fir-test-5b807",
   storageBucket: "fir-test-5b807.appspot.com",
   messagingSenderId: "686866407483",
