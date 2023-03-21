@@ -26,10 +26,10 @@ function App() {
     <div className="App">
       <header className="">
         <h1>ChatterBox</h1>
-        <SignOut />
+        <SignIn /><SignOut />
       </header>
       <section>
-        {user ? <><ChatRoom /></> : <SignIn />}
+        {user ? <><ChatRoom /></> : <></>}
       </section>
     </div>
   );
@@ -41,7 +41,7 @@ function SignIn() {
     auth.signInWithPopup(provider);
   }
 
-  return (
+  return !auth.currentUser && (
     <button onClick={signInWithGoogle} style={mb}>Sign In</button>
   );
 }

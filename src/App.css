@@ -50,8 +50,9 @@ h1 {
 }
 
 .messages {
-  display: grid;
-  row-gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px
 }
 
 .message img {
