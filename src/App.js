@@ -15,7 +15,7 @@ firebase.initializeApp({
   appId: "1:686866407483:web:a46e67bdc854944aedbc1e"
 })
 
-
+const mb = {marginBottom:"10px"};
 const auth = firebase.auth();
 const appFirestore = firebase.firestore();
 
@@ -40,13 +40,13 @@ function SignIn() {
   }
 
   return (
-    <button onClick={signInWithGoogle}>Sign in with Google</button>
+    <button onClick={signInWithGoogle} style={mb}>Sign In</button>
   );
 }
 
 function SignOut() {
   return auth.currentUser && (
-    <button onClick={() => auth.signOut()}>Sign Out</button>
+    <button onClick={() => auth.signOut()} style={mb}>Sign Out</button>
   )
 }
 
@@ -69,20 +69,20 @@ function ChatRoom() {
     });
     setFormValue("");
     bottom.current.scrollIntoView({behavior:"smooth"})
-    console.log(msgText.current);
+    // console.log(msgText.current);
   }
 
   return (
     <>
       <div>
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-        <div ref={bottom}></div>
+        <div ref={bottom} style={mb}></div>
       </div>
       <form onSubmit={sendMessage}>
         <input ref={msgText} type="text" value={formValue} required onChange={(e) => setFormValue(e.target.value)} />
         <button type="submit">🗣 Send</button>
       </form>
-      <div style={{marginBottom:"10px"}}></div>
+      <div style={mb}></div>
     </>
   );
 }
