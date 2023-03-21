@@ -5,6 +5,7 @@ import 'firebase/compat/firestore';
 import { useRef, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { serverTimestamp } from 'firebase/firestore';
 
 firebase.initializeApp({
   apiKey: "AIzaSyCJgHol-1pbIB50efAeX_noBkvxl2DnF_w",
@@ -63,7 +64,7 @@ function ChatRoom() {
     const { uid, photoURL } = auth.currentUser;
     await messagesCollection.add({
       text: formValue,
-      createdAt: new Date(),
+      createdAt: serverTimestamp(),
       uid, 
       photoURL
     });
@@ -75,7 +76,7 @@ function ChatRoom() {
   return (
     <>
       <div>
-        {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+        {messages && messages.map((msg,index) => <ChatMessage key={index} message={msg} />)}
         <div ref={bottom} style={mb}></div>
       </div>
       <form onSubmit={sendMessage}>
