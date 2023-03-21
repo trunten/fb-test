@@ -80,7 +80,7 @@ function ChatRoom() {
           {messages && messages.map((msg,index) => <ChatMessage key={index} message={msg} />)}
           <div ref={bottom} style={mb}></div>
         </div>
-        <div>
+        <div className="input">
           <form onSubmit={sendMessage}>
             <input ref={msgText} type="text" value={formValue} required onChange={(e) => setFormValue(e.target.value)} />
             <button type="submit">
