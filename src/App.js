@@ -2,7 +2,8 @@ import './App.css';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import { useRef, useState } from 'react'
+import { useRef, useEffect } from 'react'
+// import { useState} from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { serverTimestamp } from 'firebase/firestore';
@@ -56,23 +57,29 @@ function ChatRoom() {
   const messagesCollection = appFirestore.collection("messages");
   const query = messagesCollection.orderBy("createdAt");
   const [messages] = useCollectionData(query, {idField: "id"});
-  const [formValue, setFormValue] = useState("");
+  // const [formValue, setFormValue] = useState("");
   const msgText = useRef(0);
   const bottom = useRef(0); 
+  useEffect(() => {
+    bottom.current.scrollIntoView({behavior:"smooth"});
+  }, [messages]);
 
   const sendMessage = async(e) => {
     e.preventDefault();
     const { uid, photoURL } = auth.currentUser;
     await messagesCollection.add({
-      text: formValue,
+      text: msgText.current.value,
       createdAt: serverTimestamp(),
       uid, 
       photoURL
     });
-    setFormValue("");
-    bottom.current.scrollIntoView({behavior:"smooth"})
+    msgText.current.value = "";
+    // setFormValue("");
+    // bottom.current.scrollIntoView({behavior:"smooth"})
     // console.log(msgText.current);
   }
+
+  
 
   return (
       <div className="chatroom">
@@ -82,7 +89,8 @@ function ChatRoom() {
         </div>
         <div className="input">
           <form onSubmit={sendMessage}>
-            <input ref={msgText} type="text" value={formValue} required onChange={(e) => setFormValue(e.target.value)} />
+            {/* <input ref={msgText} type="text" value={formValue} required onChange={(e) => setFormValue(e.target.value)} /> */}
+            <input ref={msgText} type="text" required />
             <button type="submit">
             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M48 448l416-192L48 64v149.333L346 256 48 298.667z"></path></svg>
             </button>
