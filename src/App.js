@@ -54,7 +54,7 @@ function SignOut() {
 
 function ChatRoom() {
   const messagesCollection = appFirestore.collection("messages");
-  const query = messagesCollection.orderBy("createdAt").limit(25);
+  const query = messagesCollection.orderBy("createdAt");
   const [messages] = useCollectionData(query, {idField: "id"});
   const [formValue, setFormValue] = useState("");
   const msgText = useRef(0);
