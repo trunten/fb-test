@@ -1,38 +1,122 @@
-.App {
+button {
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+header {
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 660px;
   text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0,0,0,1);
+  color: white;
+  padding-block: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header > button {
+  padding: 10px 20px;
+  border-radius: 100vw;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header > button:hover {
+  color: black;
+  background-color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1 {
+  padding: 0;
+  margin: 0 0 10px;
+}
+
+.chatroom {
+  padding-top: 130px;
+  padding-inline: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr 100px 1px;
+  min-height: 87vh;
+  border: 1px solid rgb(160, 160, 160);
+}
+
+.messages {
+  display: grid;
+  row-gap: 8px;
+}
+
+.message img {
+  border-radius: 50%;
+  height: 40px;
+}
+
+.message {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+
+.message > p {
+  border: 1px solid rgb(233, 233, 233);
+  padding: 5px 10px;
+  margin: 0 10px;
+  border-radius: 10px;
+  
+  color: white;
+  background-color: grey;
+}
+
+.message.sent {
+  flex-direction: row-reverse;
+}
+
+
+.message.sent > p {
+  background-color: rgb(46, 106, 246);
+  border-bottom-right-radius: 0;
+}
+
+.message.received > p {
+  background-color: rgb(90, 113, 163);
+  border-bottom-left-radius: 0;
+}
+
+form {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  border: 1px solid black;
+  border-radius: 100vmax;
+  padding: 5px;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 10px;
+  outline: transparent;
+  background: none;
+  border: none;
+  width: 100%;
+}
+
+form > button {
+  border-radius: 50%;
+  padding: 8px 7px 5px 10px;
+  background-color: rgb(123, 123, 123);
+  border: none;
   color: white;
+  font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form > button:hover {
+  background-color: rgb(46, 106, 246);
 }

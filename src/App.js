@@ -26,9 +26,10 @@ function App() {
     <div className="App">
       <header className="">
         <h1>ChatterBox</h1>
+        <SignOut />
       </header>
       <section>
-        {user ? <><SignOut /><ChatRoom /></> : <SignIn />}
+        {user ? <><ChatRoom /></> : <SignIn />}
       </section>
     </div>
   );
@@ -74,17 +75,21 @@ function ChatRoom() {
   }
 
   return (
-    <>
-      <div>
-        {messages && messages.map((msg,index) => <ChatMessage key={index} message={msg} />)}
-        <div ref={bottom} style={mb}></div>
+      <div className="chatroom">
+        <div className="messages">
+          {messages && messages.map((msg,index) => <ChatMessage key={index} message={msg} />)}
+          <div ref={bottom} style={mb}></div>
+        </div>
+        <div>
+          <form onSubmit={sendMessage}>
+            <input ref={msgText} type="text" value={formValue} required onChange={(e) => setFormValue(e.target.value)} />
+            <button type="submit">
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M48 448l416-192L48 64v149.333L346 256 48 298.667z"></path></svg>
+            </button>
+          </form>
+        </div>
+        <div style={mb}></div>
       </div>
-      <form onSubmit={sendMessage}>
-        <input ref={msgText} type="text" value={formValue} required onChange={(e) => setFormValue(e.target.value)} />
-        <button type="submit">🗣 Send</button>
-      </form>
-      <div style={mb}></div>
-    </>
   );
 }
 
