@@ -65,6 +65,10 @@ h1 {
   align-items: center;
 }
 
+.message a {
+  color: white;
+}
+
 .message > p {
   border: 1px solid rgb(233, 233, 233);
   padding: 8px 13px;
