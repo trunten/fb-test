@@ -2,6 +2,7 @@ import './App.css';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+
 import { useRef, useEffect } from 'react'
 // import { useState} from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -10,12 +11,12 @@ import { serverTimestamp } from 'firebase/firestore';
 import Linkify from 'react-linkify';
 
 firebase.initializeApp({
-  apiKey: "AIzaSyCJgHol-1pbIB50efAeX_noBkvxl2DnF_w",
-  authDomain: "fir-test-5b807.firebaseapp.com",
-  projectId: "fir-test-5b807",
-  storageBucket: "fir-test-5b807.appspot.com",
-  messagingSenderId: "686866407483",
-  appId: "1:686866407483:web:a46e67bdc854944aedbc1e"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGE_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 })
 
 const mb = {marginBottom:"10px"};
@@ -113,5 +114,6 @@ function ChatMessage(props) {
     </div>
   )
 }
+
 
 export default App;
