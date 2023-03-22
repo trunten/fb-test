@@ -78,6 +78,7 @@ h1 {
 .message {
   display: flex;
   align-items: center;
+  max-width: 60%;
 }
 
 .message a {
@@ -96,6 +97,7 @@ h1 {
 
 .message.sent {
   flex-direction: row-reverse;
+  margin-left: auto;
 }
 
 .message.sent > p {
