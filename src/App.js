@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 // Components
 import { SignIn, SignOut } from './components/Auth'
 import ChatRoom from './components/ChatRoom';
+import LandingPage from "./components/LandingPage/LandingPage";
 
 // Firebase
 import firebase from 'firebase/compat/app';
@@ -29,10 +30,11 @@ export default function App() {
   return (
     <div className="App">
       <FirebaseContext.Provider value={{ firebase, auth, firestore }}>
-        <header className="">
+        {/* <header className="">
           <h1>ChatterBox</h1>
           <SignIn /><SignOut />
-        </header>
+        </header> */}
+        <LandingPage></LandingPage>
         <section>
           {user ? <><ChatRoom /></> : <></>}
         </section>

@@ -1,7 +1,7 @@
-    body {
+  .body {
     box-sizing: border-box;
     scroll-behavior: smooth;
-    background:rgba(255, 255, 255, 0.5) url(./Screenshot\ 2023-03-21\ at\ 19.45.55\ \(1\).png);
+    background-image:url(../../images/Screenshot\ 2023-03-21\ at\ 19.45.55.png);
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: scale-down;
