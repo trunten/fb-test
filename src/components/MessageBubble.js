@@ -22,12 +22,18 @@ export default function MessageBubble({ message }) {
   async function dislikeMessage() {
     await ref.update({disliked: !disliked});
   }
+
+  async function deleteMessage(e) {
+    if (uid === auth.currentUser.uid) {
+      await firestore.collection('messages').doc(message.id).delete();
+    }
+  }
   
   return (
     <>
       <div className={`message ${className}`}>
         <img src={ isBot ? bot : photoURL } alt="avatar" />
-        <p>
+        <p onDoubleClick={deleteMessage}>
           <Linkify>{text}</Linkify>
           <span style={className === "sent" 
               ? {position:"absolute", bottom:"-16px", left:"100%", transform:"translateX(-100%)", display:"flex"} 
