@@ -66,7 +66,7 @@ h1 {
 .messages {
   display: flex;
   flex-direction: column;
-  gap: 7px
+  gap: 20px
 }
 
 .message img {
@@ -90,12 +90,12 @@ h1 {
   border-radius: 10px;
   color: white;
   background-color: grey;
+  position: relative;
 }
 
 .message.sent {
   flex-direction: row-reverse;
 }
-
 
 .message.sent > p {
   background-color: rgb(46, 106, 246);
@@ -138,4 +138,12 @@ form > button {
 
 form > button:hover {
   background-color: rgb(46, 106, 246);
+}
+
+.no-style-btn {
+  border: none;
+  outline: none;
+  background: none;
+  margin: 0;
+  padding: 0;
 }
