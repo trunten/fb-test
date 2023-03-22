@@ -16,7 +16,7 @@ const mb = { marginBottom: "10px" };
 export default function ChatRoom({ roomID }) {
   const {auth, appFirestore } = useContext(FirebaseContext)
   const messagesCollection = appFirestore.collection("messages");
-  const query = messagesCollection.orderBy("createdAt");
+  const query = messagesCollection.orderBy("createdAt").limitToLast(100);
   const [messages] = useCollectionData(query, {idField: "id"});
   const msgText = useRef(0);
   const bottom = useRef(0);
