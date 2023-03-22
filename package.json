@@ -10,7 +10,7 @@
     "firebase": "^9.18.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-firebase-hooks": "^5.1.1",
+    "react-firebase-hooks": "^4.0.2",
     "react-linkify": "^1.0.0-alpha",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"

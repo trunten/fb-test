@@ -21,13 +21,14 @@ firebase.initializeApp({
 })
 
 const auth = firebase.auth();
-const appFirestore = firebase.firestore();
+const firestore = firebase.firestore();
 
 export default function App() {
   const [user] = useAuthState(auth);
+
   return (
     <div className="App">
-      <FirebaseContext.Provider value={{ firebase, auth, appFirestore }}>
+      <FirebaseContext.Provider value={{ firebase, auth, firestore }}>
         <header className="">
           <h1>ChatterBox</h1>
           <SignIn /><SignOut />
