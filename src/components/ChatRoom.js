@@ -30,7 +30,7 @@ export default function ChatRoom({ roomID }) {
     msgText.current.value = "";
     if (text.toLowerCase().includes("@bot")) {
       Chatbot(text, (response) => {
-        console.log(response);
+        // console.log(response);
         sendMessage({ text: response, uid: "chatbot", isBot: true, roomID });
       });
     }

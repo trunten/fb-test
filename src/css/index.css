@@ -76,7 +76,7 @@ h1 {
 .message {
   display: flex;
   align-items: center;
-  max-width: 60%;
+  max-width: 75%;
 }
 
 .message a {

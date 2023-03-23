@@ -7,16 +7,19 @@ import Linkify from "react-linkify";
 
 // Import react libraries
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 // Assets
 import bot from "../../images/bot.png";
 import "./MessageBubble.css";
 import { BsEmojiSmile, BsHandThumbsUp, BsHeart } from "react-icons/bs";
+import sound from "../../sound/facebookchat.mp3";
 
 export default function MessageBubble({ message }) {
   // Usestates
   const textRef = useRef(null);
   const [showTab, setShowTab] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
 
   const { auth, firestore } = useContext(FirebaseContext);
   const { text, uid, photoURL, isBot } = message;
@@ -31,15 +34,20 @@ export default function MessageBubble({ message }) {
 
   // Mouse over for emoji
   const addReaction = async (emoji) => {
+    if (!isClicked) {
+      setIsClicked(true);
+      const audio = new Audio(sound);
+      audio.play();
+    }
     if (emoji === "🙂") {
-      await ref.update({smile: (message.smile || 0) + 1});
+      await ref.update({ smile: (message.smile || 0) + 1 });
     }
 
     if (emoji === "❤️") {
-      await ref.update({heart: (message.heart || 0) + 1});
+      await ref.update({ heart: (message.heart || 0) + 1 });
     }
     if (emoji === "👍") {
-      await ref.update({like: (message.like || 0) + 1});
+      await ref.update({ like: (message.like || 0) + 1 });
     }
   };
 
@@ -52,7 +60,15 @@ export default function MessageBubble({ message }) {
   };
 
   return (
-    <div className="message-box" ref={textRef} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+    <motion.div
+      className="message-box"
+      ref={textRef}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className={`message ${className}`}>
         <img src={isBot ? bot : photoURL} alt="avatar" />
         <p onDoubleClick={deleteMessage}>
@@ -60,9 +76,17 @@ export default function MessageBubble({ message }) {
         </p>
       </div>
       {true && (
-        <div className={`tab ${showTab}`} style={ className === "sent"
-            ? { display: "flex", justifyContent: "end", marginRight: "45px", }
-            : {display: "flex", marginLeft: "45px", }}>
+        <motion.div
+          className={`tab ${showTab}`}
+          style={
+            className === "sent"
+              ? { display: "flex", justifyContent: "end", marginRight: "45px" }
+              : { display: "flex", marginLeft: "45px" }
+          }
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           <button onClick={() => addReaction("🙂")} className="reaction-button">
             <span>{message.smile}</span>
             <BsEmojiSmile />
@@ -75,8 +99,8 @@ export default function MessageBubble({ message }) {
             <span>{message.like}</span>
             <BsHandThumbsUp />
           </button>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 }
