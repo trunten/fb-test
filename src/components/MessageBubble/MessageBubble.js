@@ -13,12 +13,11 @@ import bot from "../../images/bot.png";
 import "./MessageBubble.css";
 import { BsEmojiSmile, BsHandThumbsUp, BsHeart } from "react-icons/bs";
 
-
 export default function MessageBubble({ message }) {
   // Usestates
   const textRef = useRef(null);
   const [showTab, setShowTab] = useState(false);
-  const [counter, setCounter] = useState({smile: "", heart: "", like: ""});
+  const [counter, setCounter] = useState({ smile: "", heart: "", like: "" });
 
   const { auth, firestore } = useContext(FirebaseContext);
   const { text, uid, photoURL, isBot } = message;
@@ -36,18 +35,18 @@ export default function MessageBubble({ message }) {
   const addReaction = (emoji) => {
     if (emoji === "🙂") {
       let num = +counter.smile;
-      setCounter({...counter, smile: num + 1 })
-      console.log(counter)
+      setCounter({ ...counter, smile: num + 1 });
+      console.log(counter);
     }
-    
+
     if (emoji === "❤️") {
       let num = +counter.heart;
-      setCounter({...counter, heart: num+1})
-      }
+      setCounter({ ...counter, heart: num + 1 });
+    }
     if (emoji === "👍") {
       let num = +counter.like;
-      setCounter({...counter, like: num+1})
-      }
+      setCounter({ ...counter, like: num + 1 });
+    }
   };
   // async function handleEmoji({ onEmojiClick }) {
   //   await ref.update({});
