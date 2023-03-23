@@ -7,6 +7,7 @@ import Linkify from "react-linkify";
 
 // Import react libraries
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 // Assets
 import bot from "../../images/bot.png";
@@ -18,7 +19,7 @@ export default function MessageBubble({ message }) {
   const textRef = useRef(null);
   const [showTab, setShowTab] = useState(false);
   const [counter, setCounter] = useState({ smile: "", heart: "", like: "" });
-
+  const [icon, setIcon] = useState({ smile: false, heart: false, like: false });
   const { auth, firestore } = useContext(FirebaseContext);
   const { text, uid, photoURL, isBot } = message;
   const className = uid === auth.currentUser.uid ? "sent" : "received";
@@ -36,16 +37,18 @@ export default function MessageBubble({ message }) {
     if (emoji === "🙂") {
       let num = +counter.smile;
       setCounter({ ...counter, smile: num + 1 });
-      console.log(counter);
+      setIcon({ ...icon, smile: true });
     }
 
     if (emoji === "❤️") {
       let num = +counter.heart;
       setCounter({ ...counter, heart: num + 1 });
+      setIcon({ ...icon, heart: true });
     }
     if (emoji === "👍") {
       let num = +counter.like;
       setCounter({ ...counter, like: num + 1 });
+      setIcon({ ...icon, like: true });
     }
   };
   // async function handleEmoji({ onEmojiClick }) {
@@ -60,13 +63,16 @@ export default function MessageBubble({ message }) {
   };
 
   return (
-    <div
+    <motion.div
       className="message-box"
       ref={textRef}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
-      <div className={`message ${className}`}>
+      <div className={`message ${className}`} >
         <img src={isBot ? bot : photoURL} alt="avatar" />
 
         <p onDoubleClick={deleteMessage}>
@@ -92,7 +98,12 @@ export default function MessageBubble({ message }) {
         </p>
       </div>
       {showTab && (
-        <div className="tab">
+        <motion.div
+          className="tab"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <div className="tab-icons">
             <p className="fa fa-home">
               <div
@@ -114,27 +125,27 @@ export default function MessageBubble({ message }) {
                   className="reaction-button"
                 >
                   <span>{counter.smile}</span>
-                  <BsEmojiSmile />
+                  {icon.smile ? "🙂" : <BsEmojiSmile />}
                 </button>
                 <button
                   onClick={() => addReaction("❤️")}
                   className="reaction-button"
                 >
                   <span>{counter.heart}</span>
-                  <BsHeart />
+                  {icon.heart ? "❤️" : <BsHeart />}
                 </button>
                 <button
                   onClick={() => addReaction("👍")}
                   className="reaction-button"
                 >
                   <span>{counter.like}</span>
-                  <BsHandThumbsUp />
+                  {icon.like ? "👍" : <BsHandThumbsUp />}
                 </button>
               </div>
             </p>
           </div>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 }
