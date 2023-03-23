@@ -19,7 +19,7 @@ button {
 
 header {
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-51.2%);
   max-width: 660px;
   text-align: center;
   margin: 0 auto;
@@ -27,6 +27,7 @@ header {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.85);
   color: white;
+  border: 1px solid black;
   padding-block: 10px;
   backdrop-filter: blur(5px);
   z-index: 2;
@@ -56,6 +57,7 @@ h1 {
 .chatroom {
   padding-top: 130px;
   padding-inline: 10px;
+  width: 100%;
   max-width: 640px;
   margin: 0 auto;
   border: 1px solid rgb(160, 160, 160);
