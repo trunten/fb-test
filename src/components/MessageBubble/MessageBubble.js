@@ -22,7 +22,7 @@ export default function MessageBubble({ message }) {
   const { auth, firestore } = useContext(FirebaseContext);
   const { text, uid, photoURL, isBot } = message;
   const className = uid === auth.currentUser.uid ? "sent" : "received";
-  const ref = firestore.collection("messages").doc(message.id);
+  // const ref = firestore.collection("messages").doc(message.id);
 
   async function deleteMessage(e) {
     if (uid === auth.currentUser.uid) {
