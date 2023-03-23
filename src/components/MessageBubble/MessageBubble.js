@@ -16,7 +16,7 @@ import { BsEmojiSmile, BsHandThumbsUp, BsHeart } from "react-icons/bs";
 export default function MessageBubble({ message }) {
   // Usestates
   const textRef = useRef(null);
-  const [showTab, setShowTab] = useState(false);
+  const [showTab, setShowTab] = useState("");
 
   const { auth, firestore } = useContext(FirebaseContext);
   const { text, uid, photoURL, isBot } = message;
@@ -44,87 +44,37 @@ export default function MessageBubble({ message }) {
   };
 
   const handleMouseOver = () => {
-    setShowTab(true);
+    setShowTab("tab-visible");
   };
 
   const handleMouseOut = () => {
-    setShowTab(false);
+    setShowTab("");
   };
 
   return (
-    <div
-      className="message-box"
-      ref={textRef}
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
-    >
+    <div className="message-box" ref={textRef} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
       <div className={`message ${className}`}>
         <img src={isBot ? bot : photoURL} alt="avatar" />
-
         <p onDoubleClick={deleteMessage}>
           <Linkify>{text}</Linkify>
-          <span
-            style={
-              className === "sent"
-                ? {
-                    position: "absolute",
-                    bottom: "-16px",
-                    left: "100%",
-                    transform: "translateX(-100%)",
-                    display: "flex",
-                  }
-                : {
-                    position: "absolute",
-                    bottom: "-16px",
-                    left: "0",
-                    display: "flex",
-                  }
-            }
-          ></span>
         </p>
       </div>
-      {showTab && (
-        <div className="tab">
-          <div className="tab-icons">
-            <p className="fa fa-home">
-              <div
-                style={
-                  className === "sent"
-                    ? {
-                        display: "flex",
-                        justifyContent: "end",
-                        marginRight: "45px",
-                      }
-                    : {
-                        display: "flex",
-                        marginLeft: "45px",
-                      }
-                }
-              >
-                <button
-                  onClick={() => addReaction("🙂")}
-                  className="reaction-button"
-                >
-                  <span>{message.smile}</span>
-                  <BsEmojiSmile />
-                </button>
-                <button
-                  onClick={() => addReaction("❤️")}
-                  className="reaction-button"
-                >
-                  <span>{message.heart}</span>
-                  <BsHeart />
-                </button>
-                <button
-                  onClick={() => addReaction("👍")}
-                  className="reaction-button"
-                >
-                  <span>{message.like}</span>
-                  <BsHandThumbsUp />
-                </button>
-              </div>
-            </p>
-          </div>
+      {true && (
+        <div className={`tab ${showTab}`} style={ className === "sent"
+            ? { display: "flex", justifyContent: "end", marginRight: "45px", }
+            : {display: "flex", marginLeft: "45px", }}>
+          <button onClick={() => addReaction("🙂")} className="reaction-button">
+            <span>{message.smile}</span>
+            <BsEmojiSmile />
+          </button>
+          <button onClick={() => addReaction("❤️")} className="reaction-button">
+            <span>{message.heart}</span>
+            <BsHeart />
+          </button>
+          <button onClick={() => addReaction("👍")} className="reaction-button">
+            <span>{message.like}</span>
+            <BsHandThumbsUp />
+          </button>
         </div>
       )}
     </div>
