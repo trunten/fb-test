@@ -147,7 +147,7 @@ export default function MessageBubble({ message }) {
               </svg>
             )}
           </button>
-          <button onClick={deleteMessage} className="reaction-button delete">
+          { uid === auth.currentUser.uid ? <button onClick={deleteMessage} className="reaction-button delete">
             <svg
               stroke="currentColor"
               fill="currentColor"
@@ -164,7 +164,8 @@ export default function MessageBubble({ message }) {
                 clipRule="evenodd"
               ></path>
             </svg>
-          </button>
+          </button> : ""}
+          
         </motion.div>
       )}
     </motion.div>
