@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 import bot from "../../images/bot.png";
 import "./MessageBubble.css";
 import { BsEmojiSmile, BsHandThumbsUp, BsHeart } from "react-icons/bs";
+import sound from "../../sound/facebookchat.mp3"
 
 export default function MessageBubble({ message }) {
   // Usestates
@@ -20,6 +21,8 @@ export default function MessageBubble({ message }) {
   const [showTab, setShowTab] = useState(false);
   const [counter, setCounter] = useState({ smile: "", heart: "", like: "" });
   const [icon, setIcon] = useState({ smile: false, heart: false, like: false });
+  const [isClicked, setIsClicked] = useState(false);
+
   const { auth, firestore } = useContext(FirebaseContext);
   const { text, uid, photoURL, isBot } = message;
   const className = uid === auth.currentUser.uid ? "sent" : "received";
@@ -31,9 +34,15 @@ export default function MessageBubble({ message }) {
     }
   }
 
-  // Mouse over for emoji
+  // Mouse over for emoji and reactions
 
   const addReaction = (emoji) => {
+    const handleClick = () => {
+      setIsClicked(true);
+      const audio = new Audio(sound);
+      audio.play();
+    };
+    handleClick();
     if (emoji === "🙂") {
       let num = +counter.smile;
       setCounter({ ...counter, smile: num + 1 });
@@ -50,6 +59,7 @@ export default function MessageBubble({ message }) {
       setCounter({ ...counter, like: num + 1 });
       setIcon({ ...icon, like: true });
     }
+
   };
   // async function handleEmoji({ onEmojiClick }) {
   //   await ref.update({});
@@ -61,6 +71,9 @@ export default function MessageBubble({ message }) {
   const handleMouseOut = () => {
     setShowTab(false);
   };
+
+
+  
 
   return (
     <motion.div
