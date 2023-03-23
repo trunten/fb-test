@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { FirebaseContext } from "../App";
 
 // Hooks
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { serverTimestamp } from 'firebase/firestore';
 
@@ -21,10 +21,6 @@ export default function ChatRoom({ roomID }) {
   const msgText = useRef(0);
   const bottom = useRef(0);
   roomID = roomID || "chatterbox";
-
-  useEffect(() => {
-    bottom.current.scrollIntoView({behavior:"smooth"});
-  }, [messages]);
 
   function submit(e) {
     e.preventDefault();
@@ -45,6 +41,7 @@ export default function ChatRoom({ roomID }) {
   }
 
   return (
+    <div style={{height:"100vh", overflow:"scroll", display:"flex", flexDirection:"column-reverse"}}>
       <div className="chatroom">
         <div className="messages">
           {messages && messages.map((msg,index) => <MessageBubble key={index} message={msg} />)}
@@ -59,6 +56,7 @@ export default function ChatRoom({ roomID }) {
           </form>
         </div>
         <div style={mb}></div>
+        </div>
       </div>
   );
 }
