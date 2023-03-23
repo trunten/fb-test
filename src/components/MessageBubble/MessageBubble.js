@@ -7,26 +7,21 @@ import Linkify from "react-linkify";
 
 // Import react libraries
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
 
 // Assets
 import bot from "../../images/bot.png";
 import "./MessageBubble.css";
 import { BsEmojiSmile, BsHandThumbsUp, BsHeart } from "react-icons/bs";
-import sound from "../../sound/facebookchat.mp3"
 
 export default function MessageBubble({ message }) {
   // Usestates
   const textRef = useRef(null);
   const [showTab, setShowTab] = useState(false);
-  const [counter, setCounter] = useState({ smile: "", heart: "", like: "" });
-  const [icon, setIcon] = useState({ smile: false, heart: false, like: false });
-  const [isClicked, setIsClicked] = useState(false);
 
   const { auth, firestore } = useContext(FirebaseContext);
   const { text, uid, photoURL, isBot } = message;
   const className = uid === auth.currentUser.uid ? "sent" : "received";
-  // const ref = firestore.collection("messages").doc(message.id);
+  const ref = firestore.collection("messages").doc(message.id);
 
   async function deleteMessage(e) {
     if (uid === auth.currentUser.uid) {
@@ -34,36 +29,20 @@ export default function MessageBubble({ message }) {
     }
   }
 
-  // Mouse over for emoji and reactions
-
-  const addReaction = (emoji) => {
-    const handleClick = () => {
-      setIsClicked(true);
-      const audio = new Audio(sound);
-      audio.play();
-    };
-    handleClick();
+  // Mouse over for emoji
+  const addReaction = async (emoji) => {
     if (emoji === "🙂") {
-      let num = +counter.smile;
-      setCounter({ ...counter, smile: num + 1 });
-      setIcon({ ...icon, smile: true });
+      await ref.update({ smile: (message.smile || 0) + 1 });
     }
 
     if (emoji === "❤️") {
-      let num = +counter.heart;
-      setCounter({ ...counter, heart: num + 1 });
-      setIcon({ ...icon, heart: true });
+      await ref.update({ heart: (message.heart || 0) + 1 });
     }
     if (emoji === "👍") {
-      let num = +counter.like;
-      setCounter({ ...counter, like: num + 1 });
-      setIcon({ ...icon, like: true });
+      await ref.update({ like: (message.like || 0) + 1 });
     }
-
   };
-  // async function handleEmoji({ onEmojiClick }) {
-  //   await ref.update({});
-  // }
+
   const handleMouseOver = () => {
     setShowTab(true);
   };
@@ -72,20 +51,14 @@ export default function MessageBubble({ message }) {
     setShowTab(false);
   };
 
-
-  
-
   return (
-    <motion.div
+    <div
       className="message-box"
       ref={textRef}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
     >
-      <div className={`message ${className}`} >
+      <div className={`message ${className}`}>
         <img src={isBot ? bot : photoURL} alt="avatar" />
 
         <p onDoubleClick={deleteMessage}>
@@ -111,12 +84,7 @@ export default function MessageBubble({ message }) {
         </p>
       </div>
       {showTab && (
-        <motion.div
-          className="tab"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="tab">
           <div className="tab-icons">
             <p className="fa fa-home">
               <div
@@ -137,28 +105,28 @@ export default function MessageBubble({ message }) {
                   onClick={() => addReaction("🙂")}
                   className="reaction-button"
                 >
-                  <span>{counter.smile}</span>
-                  {icon.smile ? "🙂" : <BsEmojiSmile />}
+                  <span>{message.smile}</span>
+                  <BsEmojiSmile />
                 </button>
                 <button
                   onClick={() => addReaction("❤️")}
                   className="reaction-button"
                 >
-                  <span>{counter.heart}</span>
-                  {icon.heart ? "❤️" : <BsHeart />}
+                  <span>{message.heart}</span>
+                  <BsHeart />
                 </button>
                 <button
                   onClick={() => addReaction("👍")}
                   className="reaction-button"
                 >
-                  <span>{counter.like}</span>
-                  {icon.like ? "👍" : <BsHandThumbsUp />}
+                  <span>{message.like}</span>
+                  <BsHandThumbsUp />
                 </button>
               </div>
             </p>
           </div>
-        </motion.div>
+        </div>
       )}
-    </motion.div>
+    </div>
   );
 }
