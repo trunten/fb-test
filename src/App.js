@@ -6,6 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { SignIn, SignOut } from './components/Auth'
 import ChatRoom from './components/ChatRoom';
 import LandingPage from "./components/LandingPage/LandingPage";
+import EmojiPicker from 'emoji-picker-react';
 
 // Firebase
 import firebase from 'firebase/compat/app';
@@ -40,16 +41,20 @@ export default function App() {
   return (
     <div className="App">
       <FirebaseContext.Provider value={{ firebase, auth, firestore }}>
-        {/* <header className="">
+        <header className="">
           <h1>ChatterBox</h1>
           <SignIn /><SignOut />
-        </header> */}
-        <LandingPage></LandingPage>
+        </header>
+        {/* <LandingPage></LandingPage> */}
         <section>
           {user ? <><ChatRoom /></> : <></>}
         </section>
       </FirebaseContext.Provider>
+      {/* <div>
+        <EmojiPicker />
+      </div> */}
     </div>
+    
   );
 }
 

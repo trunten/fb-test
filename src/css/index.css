@@ -64,6 +64,11 @@ h1 {
   background-color: rgba(0, 0, 0, 0.019);
 }
 
+.toolbar {
+  width: calc(95% + 60px);
+  margin-left: 100px;
+}
+
 .messages {
   display: flex;
   flex-direction: column;
