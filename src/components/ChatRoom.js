@@ -8,7 +8,7 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { serverTimestamp } from 'firebase/firestore';
 
 // Components
-import MessageBubble from "./MessageBubble";
+import MessageBubble from "../components/MessageBubble/MessageBubble";
 import Chatbot from "./Chatbot";
 
 const mb = { marginBottom: "10px" };
