@@ -19,4 +19,7 @@
   .tab.tab-visible {
     visibility: visible;
   }
+  .delete:hover{
+    color: red;
+  }
   

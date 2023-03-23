@@ -147,7 +147,7 @@ export default function MessageBubble({ message }) {
               </svg>
             )}
           </button>
-          <button onClick={deleteMessage}>
+          <button onClick={deleteMessage} className="reaction-button delete">
             <svg
               stroke="currentColor"
               fill="currentColor"
