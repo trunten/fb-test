@@ -18,22 +18,26 @@ button {
 }
 
 header {
-  left: 50%;
-  transform: translateX(-50%);
-  width: 94%;
+  overflow-y: scroll;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  width: 100vw;
+  z-index: 2;
+}
+
+header > div {
+  margin: 0 auto;
   max-width: 640px;
   text-align: center;
-  margin: 0 auto;
-  position: fixed;
   background-color: rgba(0, 0, 0, 0.85);
   color: white;
   border: 1px solid black;
   padding: 10px;
   backdrop-filter: blur(5px);
-  z-index: 2;
 }
 
-header > button {
+header  button {
   padding: 10px 20px;
   border-radius: 100vw;
   border: 1px solid white;
@@ -44,7 +48,7 @@ header > button {
   text-transform: uppercase;
 }
 
-header > button:hover {
+header  button:hover {
   color: black;
   background-color: white;
 }
@@ -55,8 +59,8 @@ h1 {
 }
 
 .chatroom {
-  padding-top: 130px;
   padding-inline: 10px;
+  padding-top: 70px;
   width: 94%;
   max-width: 640px;
   margin: 0 auto;
@@ -68,7 +72,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-height: 80vh;
+  min-height: 75vh;
 }
 
 .message img {
