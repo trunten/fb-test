@@ -76,13 +76,16 @@ export default function MessageBubble({ message }) {
         </p>
       </div>
       {true && (
-        <div
+        <motion.div
           className={`tab ${showTab}`}
           style={
             className === "sent"
               ? { display: "flex", justifyContent: "end", marginRight: "45px" }
               : { display: "flex", marginLeft: "45px" }
           }
+          transition={{ opacity: { duration: 0.5 } }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         >
           <motion.button
             onClick={() => addReaction("🙂")}
@@ -179,7 +182,7 @@ export default function MessageBubble({ message }) {
           ) : (
             ""
           )}
-        </div>
+        </motion.div>
       )}
     </motion.div>
   );
