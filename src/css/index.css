@@ -162,8 +162,9 @@ form > button:hover {
 }
 
 .breakout-icon {
-  font-size: 20px;
-  padding-right: 20%;
+  font-size: 35px;
+
+  color: #18a0d8;
 }
 
 .icon-container {
@@ -171,4 +172,8 @@ form > button:hover {
   flex-direction: row;
   padding: 15%;
   align-self: center;
+}
+
+.bot {
+  padding-right: 20%;
 }

@@ -10,7 +10,7 @@ import { serverTimestamp } from "firebase/firestore";
 // Components
 import MessageBubble from "./MessageBubble/MessageBubble";
 import { Chatbot, WeatherBot } from "./Chatbot";
-import { BiBot } from "react-icons/bi";
+import { AiFillRobot } from "react-icons/ai";
 import { SiWindows11 } from "react-icons/si";
 
 const mb = { marginBottom: "10px" };
@@ -74,7 +74,7 @@ export default function ChatRoom() {
         </div>
         <div className="input">
           <div className="icon-container">
-            <BiBot className="breakout-icon" />
+            <AiFillRobot className="breakout-icon bot" />
             <SiWindows11 className="breakout-icon" />
           </div>
           <form onSubmit={submit}>
