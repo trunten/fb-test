@@ -33,11 +33,11 @@ export default function MessageBubble({ message }) {
 
   // Mouse over for emoji
   const addReaction = async (emoji) => {
-const handleClick = () => {
-  setIsClicked(true);
-  const audio = new Audio(sound);
-  audio.play();
-};
+    const handleClick = () => {
+      setIsClicked(true);
+      const audio = new Audio(sound);
+      audio.play();
+    };
     handleClick();
     if (emoji === "🙂") {
       await ref.update({ smile: (message.smile || 0) + 1 });
@@ -76,18 +76,19 @@ const handleClick = () => {
         </p>
       </div>
       {true && (
-        <motion.div
+        <div
           className={`tab ${showTab}`}
           style={
             className === "sent"
               ? { display: "flex", justifyContent: "end", marginRight: "45px" }
               : { display: "flex", marginLeft: "45px" }
           }
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
         >
-          <button onClick={() => addReaction("🙂")} className={`reaction-button delete ${isClicked ? "clicked" : ""}`}>
+          <motion.button
+            onClick={() => addReaction("🙂")}
+            className={`reaction-button delete ${isClicked ? "clicked" : ""}`}
+            whileTap={{ scale: 1.2 }}
+          >
             <span>{message.smile}</span>
             {message.smile > 0 ? (
               "🙂"
@@ -104,8 +105,12 @@ const handleClick = () => {
                 <path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm-80-216c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm4 72.6c-20.8 25-51.5 39.4-84 39.4s-63.2-14.3-84-39.4c-8.5-10.2-23.7-11.5-33.8-3.1-10.2 8.5-11.5 23.6-3.1 33.8 30 36 74.1 56.6 120.9 56.6s90.9-20.6 120.9-56.6c8.5-10.2 7.1-25.3-3.1-33.8-10.1-8.4-25.3-7.1-33.8 3.1z"></path>
               </svg>
             )}
-          </button>
-          <button onClick={() => addReaction("❤️")} className={`reaction-button delete ${isClicked ? "clicked" : ""}`}>
+          </motion.button>
+          <motion.button
+            onClick={() => addReaction("❤️")}
+            className={`reaction-button delete ${isClicked ? "clicked" : ""}`}
+            whileTap={{ scale: 1.2 }}
+          >
             <span>{message.heart}</span>
             {message.heart > 0 ? (
               "❤️"
@@ -126,8 +131,12 @@ const handleClick = () => {
                 ></path>
               </svg>
             )}
-          </button>
-          <button onClick={() => addReaction("👍")} className={`reaction-button delete ${isClicked ? "clicked" : ""}`}>
+          </motion.button>
+          <motion.button
+            onClick={() => addReaction("👍")}
+            className={`reaction-button delete ${isClicked ? "clicked" : ""}`}
+            whileTap={{ scale: 1.2 }}
+          >
             <span>{message.like}</span>
             {message.like ? (
               "👍"
@@ -147,27 +156,30 @@ const handleClick = () => {
                 ></path>
               </svg>
             )}
-          </button>
-          { uid === auth.currentUser.uid ? <button onClick={deleteMessage} className="reaction-button delete">
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 16 16"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"></path>
-              <path
-                fillRule="evenodd"
-                d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </button> : ""}
-          
-        </motion.div>
+          </motion.button>
+          {uid === auth.currentUser.uid ? (
+            <button onClick={deleteMessage} className="reaction-button delete">
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 16 16"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"></path>
+                <path
+                  fillRule="evenodd"
+                  d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          ) : (
+            ""
+          )}
+        </div>
       )}
     </motion.div>
   );
