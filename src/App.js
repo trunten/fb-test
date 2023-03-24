@@ -33,13 +33,19 @@ export default function App() {
   return (
     <div className="App">
       <FirebaseContext.Provider value={{ firebase, auth, firestore }}>
-        {user ? <><header className="">
-          <h1>ChatterBox</h1>
-          <SignIn /><SignOut />
-        </header>
-        <section>
-          <ChatRoom />
-        </section></> : <LandingPage />}
+        {user 
+          ? (<>
+              <header>
+                <div>
+                  <h1>ChatterBox</h1>
+                  <SignIn /><SignOut />
+                </div>
+              </header>
+              <section>
+                <ChatRoom />
+              </section>
+            </>)
+          : <LandingPage />}
       </FirebaseContext.Provider>
     </div>
   );

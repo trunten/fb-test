@@ -10,6 +10,14 @@
     justify-content: center;
     align-items: center;
   }
+
+  #splash.loading::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: white;
+    z-index: 99;
+  }
   
   #splash .card {
     border-radius: 10px;
