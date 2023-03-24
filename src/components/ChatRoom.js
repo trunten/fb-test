@@ -73,10 +73,11 @@ export default function ChatRoom() {
           <div ref={bottom} style={mb}></div>
         </div>
         <div className="input">
-          <BiBot className="" />
-          <SiWindows11 />
-          <fo
-          rm onSubmit={submit}>
+          <div>
+            <BiBot className="breakout-icon" />
+            <SiWindows11 className="breakout-icon" />
+          </div>
+          <form onSubmit={submit}>
             <input ref={msgText} type="text" required />
             <button type="submit">
               <svg
@@ -91,7 +92,7 @@ export default function ChatRoom() {
                 <path d="M48 448l416-192L48 64v149.333L346 256 48 298.667z"></path>
               </svg>
             </button>
-          </fo>
+          </form>
         </div>
         <div style={mb}></div>
       </div>
