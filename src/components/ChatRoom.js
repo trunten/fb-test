@@ -10,6 +10,8 @@ import { serverTimestamp } from "firebase/firestore";
 // Components
 import MessageBubble from "./MessageBubble/MessageBubble";
 import { Chatbot, WeatherBot } from "./Chatbot";
+import { BiBot } from "react-icons/bi";
+import { SiWindows11 } from "react-icons/si";
 
 const mb = { marginBottom: "10px" };
 
@@ -20,7 +22,8 @@ export default function ChatRoom() {
   const [messages] = useCollectionData(query, { idField: "id" });
   const msgText = useRef(0);
   const bottom = useRef(0);
-  const roomID = new URLSearchParams(document.location.search).get("roomid") || "chatterbox"
+  const roomID =
+    new URLSearchParams(document.location.search).get("roomid") || "chatterbox";
 
   function submit(e) {
     e.preventDefault();
@@ -34,8 +37,13 @@ export default function ChatRoom() {
         sendMessage({ text: response, uid: "chatbot", isBot: true, roomID });
       });
     } else if (text.toLowerCase().includes("@weather")) {
-      WeatherBot().then(weather => {
-        sendMessage({ text:`${weather.temp}°C, ${weather.conditions}`, uid: "chatbot", isBot: true, roomID })
+      WeatherBot().then((weather) => {
+        sendMessage({
+          text: `${weather.temp}°C, ${weather.conditions}`,
+          uid: "chatbot",
+          isBot: true,
+          roomID,
+        });
       });
     }
   }
@@ -55,11 +63,20 @@ export default function ChatRoom() {
     >
       <div className="chatroom">
         <div className="messages">
-          {messages && messages.map((msg, index) => ( msg.roomID === roomID && <MessageBubble key={index} message={msg} />))}
+          {messages &&
+            messages.map(
+              (msg, index) =>
+                msg.roomID === roomID && (
+                  <MessageBubble key={index} message={msg} />
+                )
+            )}
           <div ref={bottom} style={mb}></div>
         </div>
         <div className="input">
-          <form onSubmit={submit}>
+          <BiBot className="" />
+          <SiWindows11 />
+          <fo
+          rm onSubmit={submit}>
             <input ref={msgText} type="text" required />
             <button type="submit">
               <svg
@@ -74,7 +91,7 @@ export default function ChatRoom() {
                 <path d="M48 448l416-192L48 64v149.333L346 256 48 298.667z"></path>
               </svg>
             </button>
-          </form>
+          </fo>
         </div>
         <div style={mb}></div>
       </div>
