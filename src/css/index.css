@@ -157,8 +157,18 @@ form > button:hover {
 }
 
 .input {
+  display: grid;
+  grid-template-columns: 15% 83%;
+}
+
+.breakout-icon {
+  font-size: 20px;
+  padding-right: 20%;
+}
+
+.icon-container {
   display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: stretch;
+  flex-direction: row;
+  padding: 15%;
+  align-self: center;
 }

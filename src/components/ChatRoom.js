@@ -73,7 +73,7 @@ export default function ChatRoom() {
           <div ref={bottom} style={mb}></div>
         </div>
         <div className="input">
-          <div>
+          <div className="icon-container">
             <BiBot className="breakout-icon" />
             <SiWindows11 className="breakout-icon" />
           </div>
