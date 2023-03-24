@@ -9,18 +9,18 @@ import { serverTimestamp } from "firebase/firestore";
 
 // Components
 import MessageBubble from "./MessageBubble/MessageBubble";
-import Chatbot from "./Chatbot";
+import { Chatbot, WeatherBot } from "./Chatbot";
 
 const mb = { marginBottom: "10px" };
 
-export default function ChatRoom({ roomID }) {
+export default function ChatRoom() {
   const { auth, firestore } = useContext(FirebaseContext);
   const messagesCollection = firestore.collection("messages");
   const query = messagesCollection.orderBy("createdAt").limitToLast(100);
   const [messages] = useCollectionData(query, { idField: "id" });
   const msgText = useRef(0);
   const bottom = useRef(0);
-  roomID = roomID || "chatterbox";
+  const roomID = new URLSearchParams(document.location.search).get("roomid") || "chatterbox"
 
   function submit(e) {
     e.preventDefault();
@@ -32,6 +32,10 @@ export default function ChatRoom({ roomID }) {
       Chatbot(text, (response) => {
         // console.log(response);
         sendMessage({ text: response, uid: "chatbot", isBot: true, roomID });
+      });
+    } else if (text.toLowerCase().includes("@weather")) {
+      WeatherBot().then(weather => {
+        sendMessage({ text:`${weather.temp}°C, ${weather.conditions}`, uid: "chatbot", isBot: true, roomID })
       });
     }
   }
@@ -51,10 +55,7 @@ export default function ChatRoom({ roomID }) {
     >
       <div className="chatroom">
         <div className="messages">
-          {messages &&
-            messages.map((msg, index) => (
-              <MessageBubble key={index} message={msg} />
-            ))}
+          {messages && messages.map((msg, index) => ( msg.roomID === roomID && <MessageBubble key={index} message={msg} />))}
           <div ref={bottom} style={mb}></div>
         </div>
         <div className="input">
