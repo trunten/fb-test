@@ -33,11 +33,12 @@ export default function MessageBubble({ message }) {
 
   // Mouse over for emoji
   const addReaction = async (emoji) => {
-    if (!isClicked) {
-      setIsClicked(true);
-      const audio = new Audio(sound);
-      audio.play();
-    }
+const handleClick = () => {
+  setIsClicked(true);
+  const audio = new Audio(sound);
+  audio.play();
+};
+    handleClick();
     if (emoji === "🙂") {
       await ref.update({ smile: (message.smile || 0) + 1 });
     }
@@ -86,7 +87,7 @@ export default function MessageBubble({ message }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <button onClick={() => addReaction("🙂")} className="reaction-button">
+          <button onClick={() => addReaction("🙂")} className={`reaction-button delete ${isClicked ? "clicked" : ""}`}>
             <span>{message.smile}</span>
             {message.smile > 0 ? (
               "🙂"
@@ -104,7 +105,7 @@ export default function MessageBubble({ message }) {
               </svg>
             )}
           </button>
-          <button onClick={() => addReaction("❤️")} className="reaction-button">
+          <button onClick={() => addReaction("❤️")} className={`reaction-button delete ${isClicked ? "clicked" : ""}`}>
             <span>{message.heart}</span>
             {message.heart > 0 ? (
               "❤️"
@@ -126,7 +127,7 @@ export default function MessageBubble({ message }) {
               </svg>
             )}
           </button>
-          <button onClick={() => addReaction("👍")} className="reaction-button">
+          <button onClick={() => addReaction("👍")} className={`reaction-button delete ${isClicked ? "clicked" : ""}`}>
             <span>{message.like}</span>
             {message.like ? (
               "👍"
