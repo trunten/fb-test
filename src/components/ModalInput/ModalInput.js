@@ -18,7 +18,26 @@ export default function ModalInput({ title, prompt, placeholder, submit }) {
       >
         <Sheet.Container>
           <Sheet.Header />
-          <Sheet.Content></Sheet.Content>
+          <Sheet.Content>
+            {/* Your sheet content goes here */}
+            <div
+              style={{
+                textAlign: "center",
+                height: "300px",
+              }}
+            >
+              <h2>{title}</h2>
+              <p>{prompt}</p>
+              <form>
+                <input
+                  ref={inputValue}
+                  placeholder={placeholder || ""}
+                  required
+                />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          </Sheet.Content>
         </Sheet.Container>
 
         <Sheet.Backdrop />
