@@ -161,12 +161,6 @@ form > button:hover {
   grid-template-columns: 15% 83%;
 }
 
-.breakout-icon {
-  font-size: 35px;
-
-  color: #18a0d8;
-}
-
 .icon-container {
   display: flex;
   flex-direction: row;
@@ -176,4 +170,17 @@ form > button:hover {
 
 .bot {
   padding-right: 20%;
+}
+.icon-button {
+  font-size: 25px;
+  color: #18a0d8;
+  border-style: none;
+  background-color: inherit;
+}
+
+/* Toast CSS */
+
+.custom-body-class {
+  font-size: 15px;
+  line-height: 150%;
 }

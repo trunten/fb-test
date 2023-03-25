@@ -12,6 +12,8 @@ import MessageBubble from "./MessageBubble/MessageBubble";
 import { Chatbot, WeatherBot } from "./Chatbot";
 import { AiFillRobot } from "react-icons/ai";
 import { SiWindows11 } from "react-icons/si";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const mb = { marginBottom: "10px" };
 
@@ -33,7 +35,6 @@ export default function ChatRoom() {
     msgText.current.value = "";
     if (text.toLowerCase().includes("@bot")) {
       Chatbot(text, (response) => {
-        // console.log(response);
         sendMessage({ text: response, uid: "chatbot", isBot: true, roomID });
       });
     } else if (text.toLowerCase().includes("@weather")) {
@@ -46,6 +47,22 @@ export default function ChatRoom() {
         });
       });
     }
+  }
+
+  function handleClick() {
+    toast.info(
+      "Sample bot information... To use this bot, you need to add a prompt before your message (e.g: @bot how many months do we have in a calender year?)...",
+      {
+        position: "bottom-left",
+        autoClose: 7000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        bodyClassName: "custom-body-class",
+      }
+    );
   }
 
   async function sendMessage(msg) {
@@ -74,9 +91,14 @@ export default function ChatRoom() {
         </div>
         <div className="input">
           <div className="icon-container">
-            <AiFillRobot className="breakout-icon bot" />
-            <SiWindows11 className="breakout-icon" />
+            <button className="icon-button bot">
+              <AiFillRobot onClick={handleClick} />
+            </button>
+            <button className="icon-button">
+              <SiWindows11 />
+            </button>
           </div>
+
           <form onSubmit={submit}>
             <input ref={msgText} type="text" required />
             <button type="submit">
