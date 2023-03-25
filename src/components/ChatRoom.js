@@ -67,6 +67,9 @@ export default function ChatRoom() {
   }
 
   function changeRoom(room) {
+    if (!room || !room.trim) {
+      return;
+    }
     room = room.trim().replace(/\s/g, "_");
     if (room.length === 0) {
       return;
