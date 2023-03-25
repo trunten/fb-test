@@ -117,6 +117,7 @@ export default function ChatRoom() {
             <ModalInput
               title="Breakout Room"
               prompt="Enter the name of the room to join/create"
+              placeholder="Room name"
               submit={changeRoom}
             />
             <div className="form-group">
