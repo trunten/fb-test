@@ -121,7 +121,7 @@ export default function ChatRoom() {
               title="Breakout Room"
               prompt="Enter the name of the room to join/create"
               placeholder="Room name"
-              submit={changeRoom}
+              modalSubmit={changeRoom}
             />
             <div className="form-group">
               <input ref={msgText} type="text" placeholder="Message" required />

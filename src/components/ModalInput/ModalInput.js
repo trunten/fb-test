@@ -3,7 +3,12 @@ import { useState, useRef } from "react";
 import { SiWindows11 } from "react-icons/si";
 import "./ModalInput.css";
 
-export default function ModalInput({ title, prompt, placeholder, submit }) {
+export default function ModalInput({
+  title,
+  prompt,
+  placeholder,
+  modalSubmit,
+}) {
   const [isOpen, setOpen] = useState(false);
   const inputValue = useRef(0);
 
@@ -20,7 +25,6 @@ export default function ModalInput({ title, prompt, placeholder, submit }) {
         <Sheet.Container>
           <Sheet.Header />
           <Sheet.Content>
-            {/* Your sheet content goes here */}
             <div
               style={{
                 textAlign: "center",
@@ -34,8 +38,9 @@ export default function ModalInput({ title, prompt, placeholder, submit }) {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
+                  e.stopPropagation();
                   setOpen(false);
-                  submit(inputValue.current.value);
+                  modalSubmit(inputValue.current.value);
                   inputValue.current.value = "";
                 }}
               >
