@@ -28,7 +28,14 @@ export default function ModalInput({ title, prompt, placeholder, submit }) {
             >
               <h2>{title}</h2>
               <p>{prompt}</p>
-              <form>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setOpen(false);
+                  submit(inputValue.current.value);
+                  inputValue.current.value = "";
+                }}
+              >
                 <input
                   ref={inputValue}
                   placeholder={placeholder || ""}
