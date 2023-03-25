@@ -37,7 +37,7 @@ export default function App() {
           ? (<>
               <header>
                 <div>
-                  <h1>ChatterBox</h1>
+                  <a href="/" style={{color:"white", textDecoration:"none"}}><h1>ChatterBox</h1></a>
                   <SignIn /><SignOut />
                 </div>
               </header>

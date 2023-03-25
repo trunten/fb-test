@@ -60,19 +60,21 @@ h1 {
 
 .chatroom {
   padding-inline: 10px;
-  padding-top: 70px;
   width: 94%;
   max-width: 640px;
   margin: 0 auto;
   border: 1px solid rgb(160, 160, 160);
   background-color: rgba(0, 0, 0, 0.019);
+  padding-top: 20px;
 }
 
 .messages {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-height: 75vh;
+  min-height: calc(100vh - 199px);
+  padding-top: 100px;
+  /* padding-top: 100px; */
 }
 
 .message img {
@@ -120,22 +122,28 @@ form {
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
   border: 1px solid black;
   border-radius: 100vmax;
   padding: 5px;
+  width: 100%;
 }
 
-input {
+.form-group > input {
   font-family: inherit;
   font-size: inherit;
   padding: 10px;
   outline: transparent;
   background: none;
   border: none;
-  width: 100%;
+  width: 89%;
 }
 
-form > button {
+.form-group > button {
   border-radius: 50%;
   padding: 8px 7px 5px 10px;
   background-color: rgb(123, 123, 123);
@@ -144,7 +152,7 @@ form > button {
   font-size: 20px;
 }
 
-form > button:hover {
+.form-group > button:hover {
   background-color: rgb(46, 106, 246);
 }
 
@@ -155,31 +163,16 @@ form > button:hover {
   margin: 0;
   padding: 0;
 }
-
-.input {
-  display: grid;
-  grid-template-columns: 15% 83%;
-}
-
-.icon-container {
-  display: flex;
-  flex-direction: row;
-  padding: 15%;
-  align-self: center;
-}
-
-.bot {
-  padding-right: 20%;
-}
 .icon-button {
   font-size: 25px;
   color: #18a0d8;
   border-style: none;
   background-color: inherit;
-}
+  cursor: pointer;
+  margin: 5px;
+} 
 
 /* Toast CSS */
-
 .custom-body-class {
   font-size: 15px;
   line-height: 150%;
