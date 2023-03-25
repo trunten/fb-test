@@ -24,10 +24,11 @@ export default function ModalInput({ title, prompt, placeholder, submit }) {
             <div
               style={{
                 textAlign: "center",
-                height: "200px",
+                height: "240px",
               }}
               id="modal"
             >
+              <SiWindows11 className="icon-button" />
               <h2>{title}</h2>
               <p>{prompt}</p>
               <form

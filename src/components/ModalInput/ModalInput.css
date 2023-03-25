@@ -1,5 +1,5 @@
 #modal p {
-  color: red;
+  margin-bottom: 30px;
 }
 
 #modal button {
@@ -18,4 +18,14 @@
 #modal button:hover {
   background-color: var(--clr);
   color: white;
+}
+
+#modal input {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 6px;
+}
+
+#modal h2{
+    margin-top: 10px;
 }
