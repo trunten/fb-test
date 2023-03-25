@@ -181,3 +181,15 @@ form > button:hover {
   border-style: none;
   background-color: inherit;
 }
+
+/* Toast CSS */
+.custom-toast-class {
+  background-color: #ff0000;
+  color: #ffffff;
+  /* font-size: 16px; */
+}
+
+.custom-body-class {
+  font-size: 15px;
+  line-height: 150%;
+}

@@ -15,8 +15,8 @@
     "react-firebase-hooks": "^4.0.2",
     "react-icons": "^4.8.0",
     "react-linkify": "^1.0.0-alpha",
-    "react-modal": "^3.16.1",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

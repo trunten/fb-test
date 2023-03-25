@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { FirebaseContext } from "../App";
 
 // Hooks
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { serverTimestamp } from "firebase/firestore";
 
@@ -12,7 +12,8 @@ import MessageBubble from "./MessageBubble/MessageBubble";
 import { Chatbot, WeatherBot } from "./Chatbot";
 import { AiFillRobot } from "react-icons/ai";
 import { SiWindows11 } from "react-icons/si";
-import Modal from "react-modal";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const mb = { marginBottom: "10px" };
 
@@ -25,8 +26,6 @@ export default function ChatRoom() {
   const bottom = useRef(0);
   const roomID =
     new URLSearchParams(document.location.search).get("roomid") || "chatterbox";
-
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function submit(e) {
     e.preventDefault();
@@ -50,14 +49,21 @@ export default function ChatRoom() {
     }
   }
 
-  // Modal
-  function openModal() {
-    setModalIsOpen(true);
-  }
-
-  function closeModal() {
-    setModalIsOpen(false);
-    console.log("clicked modal");
+  function handleClick() {
+    toast.info(
+      "Sample bot information... To use this bot, you need to add a prompt before your message (e.g: @bot how many months do we have in a calender year?)",
+      {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        toastClassName: "custom-toast-class",
+        bodyClassName: "custom-body-class",
+      }
+    );
   }
 
   async function sendMessage(msg) {
@@ -86,22 +92,17 @@ export default function ChatRoom() {
         </div>
         <div className="input">
           <div className="icon-container">
-            <button onClick={openModal} className="icon-button">
-              <AiFillRobot className="breakout-icon bot" />
+            <button className="icon-button">
+              <AiFillRobot
+                className="breakout-icon bot"
+                onClick={handleClick}
+              />
             </button>
             <button className="icon-button">
               <SiWindows11 className="breakout-icon" />
             </button>
           </div>
-          <Modal
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            contentLabel="Example Modal"
-          >
-            <h2>Modal Title</h2>
-            <p>Modal Content</p>
-            <button onClick={closeModal}>Close Modal</button>
-          </Modal>
+
           <form onSubmit={submit}>
             <input ref={msgText} type="text" required />
             <button type="submit">
