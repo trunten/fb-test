@@ -1,6 +1,7 @@
 import Sheet from "react-modal-sheet";
 import { useState, useRef } from "react";
 import { SiWindows11 } from "react-icons/si";
+import "./ModalInput.css";
 
 export default function ModalInput({ title, prompt, placeholder, submit }) {
   const [isOpen, setOpen] = useState(false);
@@ -20,12 +21,7 @@ export default function ModalInput({ title, prompt, placeholder, submit }) {
           <Sheet.Header />
           <Sheet.Content>
             {/* Your sheet content goes here */}
-            <div
-              style={{
-                textAlign: "center",
-                height: "300px",
-              }}
-            >
+            <div id="modal">
               <h2>{title}</h2>
               <p>{prompt}</p>
               <form
