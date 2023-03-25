@@ -1,6 +1,21 @@
-#modal{
-    
-        text-align: "center";
-        height: "200px"
-     
+#modal p {
+  color: red;
+}
+
+#modal button {
+  --clr: rgb(60, 155, 31);
+  border: 2px solid var(--clr);
+  color: var(--clr);
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 100vmax;
+  transition: all 200ms ease;
+}
+
+#modal button:hover {
+  background-color: var(--clr);
+  color: white;
 }

@@ -21,7 +21,13 @@ export default function ModalInput({ title, prompt, placeholder, submit }) {
           <Sheet.Header />
           <Sheet.Content>
             {/* Your sheet content goes here */}
-            <div id="modal">
+            <div
+              style={{
+                textAlign: "center",
+                height: "200px",
+              }}
+              id="modal"
+            >
               <h2>{title}</h2>
               <p>{prompt}</p>
               <form
