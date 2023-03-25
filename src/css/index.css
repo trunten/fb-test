@@ -162,7 +162,7 @@ form > button:hover {
 }
 
 .breakout-icon {
-  font-size: 35px;
+  font-size: 25px;
 
   color: #18a0d8;
 }
@@ -176,4 +176,8 @@ form > button:hover {
 
 .bot {
   padding-right: 20%;
+}
+.icon-button{
+  border-style: none;
+  background-color: inherit;
 }

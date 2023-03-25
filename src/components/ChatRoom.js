@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { FirebaseContext } from "../App";
 
 // Hooks
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { serverTimestamp } from "firebase/firestore";
 
@@ -12,6 +12,7 @@ import MessageBubble from "./MessageBubble/MessageBubble";
 import { Chatbot, WeatherBot } from "./Chatbot";
 import { AiFillRobot } from "react-icons/ai";
 import { SiWindows11 } from "react-icons/si";
+import Modal from "react-modal";
 
 const mb = { marginBottom: "10px" };
 
@@ -25,6 +26,8 @@ export default function ChatRoom() {
   const roomID =
     new URLSearchParams(document.location.search).get("roomid") || "chatterbox";
 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   function submit(e) {
     e.preventDefault();
     const { uid, photoURL } = auth.currentUser;
@@ -33,7 +36,6 @@ export default function ChatRoom() {
     msgText.current.value = "";
     if (text.toLowerCase().includes("@bot")) {
       Chatbot(text, (response) => {
-        // console.log(response);
         sendMessage({ text: response, uid: "chatbot", isBot: true, roomID });
       });
     } else if (text.toLowerCase().includes("@weather")) {
@@ -46,6 +48,16 @@ export default function ChatRoom() {
         });
       });
     }
+  }
+
+  // Modal
+  function openModal() {
+    setModalIsOpen(true);
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+    console.log("clicked modal");
   }
 
   async function sendMessage(msg) {
@@ -74,9 +86,22 @@ export default function ChatRoom() {
         </div>
         <div className="input">
           <div className="icon-container">
-            <AiFillRobot className="breakout-icon bot" />
-            <SiWindows11 className="breakout-icon" />
+            <button onClick={openModal} className="icon-button">
+              <AiFillRobot className="breakout-icon bot" />
+            </button>
+            <button className="icon-button">
+              <SiWindows11 className="breakout-icon" />
+            </button>
           </div>
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            contentLabel="Example Modal"
+          >
+            <h2>Modal Title</h2>
+            <p>Modal Content</p>
+            <button onClick={closeModal}>Close Modal</button>
+          </Modal>
           <form onSubmit={submit}>
             <input ref={msgText} type="text" required />
             <button type="submit">
