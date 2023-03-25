@@ -1,0 +1,31 @@
+#modal p {
+  margin-bottom: 30px;
+}
+
+#modal button {
+  --clr: #2bb129;
+  border: 2px solid var(--clr);
+  color: var(--clr);
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 100vmax;
+  transition: all 200ms linear;
+}
+
+#modal button:hover {
+  background-color: var(--clr);
+  color: white;
+}
+
+#modal input {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 6px;
+}
+
+#modal h2 {
+  margin-top: 10px;
+}
