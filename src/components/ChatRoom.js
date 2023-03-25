@@ -51,16 +51,15 @@ export default function ChatRoom() {
 
   function handleClick() {
     toast.info(
-      "Sample bot information... To use this bot, you need to add a prompt before your message (e.g: @bot how many months do we have in a calender year?)",
+      "Sample bot information... To use this bot, you need to add a prompt before your message (e.g: @bot how many months do we have in a calender year?)...",
       {
         position: "bottom-left",
-        autoClose: 5000,
+        autoClose: 7000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        toastClassName: "custom-toast-class",
         bodyClassName: "custom-body-class",
       }
     );
@@ -92,14 +91,11 @@ export default function ChatRoom() {
         </div>
         <div className="input">
           <div className="icon-container">
-            <button className="icon-button">
-              <AiFillRobot
-                className="breakout-icon bot"
-                onClick={handleClick}
-              />
+            <button className="icon-button bot">
+              <AiFillRobot onClick={handleClick} />
             </button>
             <button className="icon-button">
-              <SiWindows11 className="breakout-icon" />
+              <SiWindows11 />
             </button>
           </div>
 
