@@ -51,6 +51,10 @@
   margin-bottom: 100px;
 }
 
+#splash img {
+  margin-left: 50px;
+}
+
 #splash button {
   background-color: transparent;
   color: #189ed8;
