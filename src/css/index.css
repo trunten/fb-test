@@ -1,10 +1,25 @@
+:root {
+  --primary-clr: #189ed8;
+  /* --secondary-clr: #ed6d54; */
+  /* --secondary-clr: #d85118; */
+  /* --secondary-clr: #d8183e; */
+  /* --secondary-clr: #e4e3e6; */
+  /* --secondary-clr: #d8b218; */
+  /* --secondary-clr: #8ec116; */
+  /* --secondary-clr: #d8189e; */
+  --secondary-clr: #13af90;
+  --primary-txt: #ffffff;
+  --secondary-txt: #ffffff;
+  /* --secondary-txt: #1f1f1f; */
+}
+
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 }
 
 code {
@@ -15,146 +30,60 @@ code {
 button {
   text-transform: uppercase;
   cursor: pointer;
+  margin: 0 !important;
 }
 
 header {
   overflow-y: scroll;
   position: fixed;
   left: 0%;
-  top: 0%;
+  top: 0px;
   width: 100vw;
   z-index: 2;
 }
 
-header > div {
+.app-header {
+  display: grid;
+  grid-template-columns: auto 1fr 130px;
+  align-items: center;
+  justify-items: start;
+  gap: 10px;
   margin: 0 auto;
-  max-width: 640px;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.85);
-  color: white;
-  border: 1px solid black;
-  padding: 10px;
+  padding-block: 10px;
+  max-width: 660px;
+  /* color: black; */
+  color: var(--primary-clr);
+  /* background-color: rgba(46, 106, 246, 0.85); */
+  background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(5px);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top: 4px solid var(--primary-clr);
+  border-bottom: 1px solid rgb(219, 218, 218);
 }
 
-header button {
+.app-header button {
+  display: inline-block;
   padding: 10px 20px;
   border-radius: 100vw;
-  border: 1px solid white;
+  border: 2px solid var(--primary-clr);
   background-color: transparent;
-  color: white;
+  color: var(--primary-clr);
   font-size: 0.8rem;
   font-weight: bold;
   text-transform: uppercase;
+  justify-self: center;
+  transition: all 150ms linear;
 }
 
-header button:hover {
-  color: black;
-  background-color: white;
+.app-header button:hover {
+  color: white;
+  background-color: var(--primary-clr);
 }
 
-h1 {
+.app-header h1 {
   padding: 0;
-  margin: 0 0 10px;
-}
-
-.chatroom {
-  padding-inline: 10px;
-  width: 94%;
-  max-width: 640px;
-  margin: 0 auto;
-  border: 1px solid rgb(160, 160, 160);
-  background-color: rgba(0, 0, 0, 0.019);
-  padding-top: 20px;
-}
-
-.messages {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  min-height: calc(100vh - 199px);
-  padding-top: 100px;
-  /* padding-top: 100px; */
-}
-
-.message img {
-  border-radius: 50%;
-  height: 40px;
-}
-
-.message {
-  display: flex;
-  align-items: center;
-  max-width: 75%;
-}
-
-.message a {
-  color: white;
-}
-
-.message > p {
-  border: 1px solid rgb(233, 233, 233);
-  padding: 8px 13px;
-  margin: 0 10px;
-  border-radius: 10px;
-  color: white;
-  background-color: grey;
-  position: relative;
-}
-
-.message.sent {
-  flex-direction: row-reverse;
-  margin-left: auto;
-}
-
-.message.sent > p {
-  background-color: rgb(46, 106, 246);
-  border-bottom-right-radius: 0;
-}
-
-.message.received > p {
-  background-color: rgb(90, 113, 163);
-  border-bottom-left-radius: 0;
-}
-
-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  
-}
-
-.form-group {
-  display: flex;
-  align-items: center;
-  border: 1px solid black;
-  border-radius: 100vmax;
-  padding: 5px;
-  width: 100%;
-}
-
-.form-group > input {
-  font-family: inherit;
-  font-size: inherit;
-  padding: 10px;
-  outline: transparent;
-  background: none;
-  border: none;
-  width: 89%;
-}
-
-.form-group > button {
-  border-radius: 50%;
-  padding: 8px 7px 5px 10px;
-  background-color: rgb(123, 123, 123);
-  border: none;
-  color: white;
-  font-size: 20px;
-}
-
-.form-group > button:hover {
-  background-color: rgb(46, 106, 246);
+  margin: 0;
 }
 
 .no-style-btn {
@@ -164,17 +93,12 @@ form {
   margin: 0;
   padding: 0;
 }
+
 .icon-button {
   font-size: 25px;
-  color: #18a0d8;
+  color: var(--primary-clr);
   border-style: none;
   background-color: inherit;
   cursor: pointer;
   margin: 5px;
-} 
-
-/* Toast CSS */
-.custom-body-class {
-  font-size: 15px;
-  line-height: 150%;
 }

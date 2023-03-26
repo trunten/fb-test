@@ -4,8 +4,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 // Components
 import { SignIn, SignOut } from './components/Auth'
-import ChatRoom from './components/ChatRoom';
+import ChatRoom from './components/ChatRoom/ChatRoom';
 import LandingPage from './components/LandingPage/LandingPage'
+
+// import ModalInput from "./components/ModalInput/ModalInput"
 
 // Firebase
 import firebase from 'firebase/compat/app';
@@ -36,8 +38,16 @@ export default function App() {
         {user 
           ? (<>
               <header>
-                <div>
-                  <a href="/" style={{color:"white", textDecoration:"none"}}><h1>ChatterBox</h1></a>
+                <div className="app-header">
+                  <p>{window.location.href.includes("?") && <a href="/" style={{color:"inherit", textDecoration:"none", padding:"0 5px 0 15px"}}>◀</a>}</p>
+                  <h1> ChatterBox</h1>
+                  {/* style={{position:"absolute", top:"47%", transform:"translateY(-50%)", right:"20px"}} */}
+                  {/* <ModalInput
+                    title="Chatterbox"
+                    prompt="Enter the name of the room to join/create"
+                    placeholder="Room name"
+                    icon={<img style={{borderRadius:"50%", height:"40px", cursor:"pointer"}} src={auth.currentUser.photoURL} alt="avatar" />}
+                  /> */}
                   <SignIn /><SignOut />
                 </div>
               </header>
