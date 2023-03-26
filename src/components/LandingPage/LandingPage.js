@@ -1,20 +1,24 @@
-import "./LandingPage.css"
-import { SignIn } from '../Auth';
-import { useState, useEffect } from "react";
+import "./LandingPage.css";
+import { SignIn } from "../Auth";
+
+import chatIcon from "../../images/chat.png";
 
 export default function LandingPage() {
-  const [loading, setLoading] = useState("loading")
-  useEffect(() => { setTimeout(() => { setLoading("") }, 500) } );
   return (
-    <div id="splash" className={loading}>
+    <div id="splash">
+      <div className="gradient-overlay"></div>
       <div className="card">
         <div className="card-body">
-          <h4>Welcome to ChatterBox</h4>
-          <div><SignIn /></div>
+          <div className="img-container">
+            <img src={chatIcon} alt="chat icon" className="chat-icon" />
+          </div>
+          <p className="intro-span">Welcome to</p>
+          <h4> ChatterBox</h4>
+          <div>
+            <SignIn />
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-
