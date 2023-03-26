@@ -12,7 +12,7 @@ export default function LandingPage() {
           <div className="img-container">
             <img src={chatIcon} alt="chat icon" className="chat-icon" />
           </div>
-          <h4>Welcome to ChatterBox</h4>
+          <h4><span className="intro-span">Welcome to</span> <br/> ChatterBox</h4>
           <div>
             <SignIn />
           </div>

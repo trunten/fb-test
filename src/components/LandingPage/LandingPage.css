@@ -29,7 +29,9 @@
 .card {
   z-index: 100;
 }
-
+.intro-span{
+  font-size: 20px;
+}
 #splash.loading::after {
   content: "";
   position: absolute;
