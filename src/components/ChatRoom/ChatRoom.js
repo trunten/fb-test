@@ -1,6 +1,6 @@
 // Global state
 import { useContext } from "react";
-import { FirebaseContext } from "../App";
+import { FirebaseContext } from "../../App";
 
 // Hooks
 import { useRef } from "react";
@@ -8,12 +8,13 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import { serverTimestamp } from "firebase/firestore";
 
 // Components
-import MessageBubble from "./MessageBubble/MessageBubble";
-import { Chatbot, WeatherBot } from "./Chatbot";
-import ModalInput from "./ModalInput/ModalInput";
+import MessageBubble from "../MessageBubble/MessageBubble";
+import { Chatbot, WeatherBot } from "../Chatbot";
+import ModalInput from "../ModalInput/ModalInput";
 import { toast } from "react-toastify";
 
 // CSS
+import "./ChatRoom.css"
 import "react-toastify/dist/ReactToastify.css";
 
 const mb = { marginBottom: "10px" };
@@ -25,11 +26,11 @@ export default function ChatRoom() {
   const [messages] = useCollectionData(query, { idField: "id" });
   const msgText = useRef(0);
   const bottom = useRef(0);
-  const roomID =
-    new URLSearchParams(document.location.search).get("roomid") || "chatterbox";
+  const roomID = new URLSearchParams(document.location.search).get("roomid") || "chatterbox";
 
-  function submit(e) {
+  function formSubmit(e) {
     e.preventDefault();
+    e.stopPropagation();
     const { uid, photoURL } = auth.currentUser;
     const text = msgText.current.value;
     sendMessage({ uid, photoURL, text, roomID });
@@ -82,8 +83,19 @@ export default function ChatRoom() {
     await messagesCollection.add({ ...msg, createdAt: serverTimestamp() });
   }
 
+  // Alternative messag send that gets base64 of user avatar.
+  // function sendMessage(msg) {
+  //   fetch(msg.photoURL).then(res => res.blob()).then(blob => {
+  //     const fr = new FileReader();
+  //     fr.readAsDataURL(blob); 
+  //     fr.onloadend = () => {
+  //       const img = fr.result;
+  //       messagesCollection.add({ ...msg, createdAt: serverTimestamp(), img })
+  //     }
+  //   });
+
   return (
-    <div
+    <div id="chat-container"
       style={{
         height: "100vh",
         overflow: "scroll",
@@ -103,7 +115,7 @@ export default function ChatRoom() {
           <div ref={bottom} style={mb}></div>
         </div>
         <div className="input">
-          <form onSubmit={submit}>
+          <form onSubmit={formSubmit} >
             <svg
               onClick={botInfo}
               className="icon-button bot"
@@ -125,18 +137,8 @@ export default function ChatRoom() {
             />
             <div className="form-group">
               <input ref={msgText} type="text" placeholder="Message" required />
-              <button type="submit">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 512 512"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M48 448l416-192L48 64v149.333L346 256 48 298.667z"></path>
-                </svg>
+              <button type="submit" className="no-style-btn">
+                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
               </button>
             </div>
           </form>
