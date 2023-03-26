@@ -1,25 +1,96 @@
-.message-box {
-    display: flex;
-    flex-direction: column;
-  }
-  .reaction-button {
-    border-style: none;
-    background-color: inherit;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-  }
-  .reaction-button span{
-    padding-right: 2px;
-  }
+.message img {
+  border-radius: 50%;
+  height: 35px;
+  align-self: end;
+}
 
-  .tab {
-    visibility: hidden;
-  }
-  .tab.tab-visible {
-    visibility: visible;
-  }
-  .delete:hover{
-    color: red;
-  }
+.message {
+  display: flex;
+  align-items: center;
+  max-width: 85%;
+}
+
+.message a {
+  color: white;
+}
+
+.message > p {
+  /* border: 1px solid rgb(233, 233, 233); */
+  padding: 8px 13px;
+  margin: 0 10px;
+  border-radius: 10px;
+  color: white;
+  background-color: grey;
+  position: relative;
+  max-height: 50vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.message > p::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.message.sent {
+  flex-direction: row-reverse;
+  margin-left: auto;
+}
+
+.message.sent > p {
+  background-color: var(--primary-clr);
+  border-bottom-right-radius: 0;
+  color: var(--primary-txt);
+}
+
+.message.received > p {
+  background-color: var(--secondary-clr);
+  border-bottom-left-radius: 0;
+  color: var(--secondary-txt);
+}
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.reaction-button {
+  border-style: none;
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 2px;
+  transition: scale 0.3s linear;
+}
+
+.reaction-button.zero {
+  filter: saturate(0);
+}
+
+.reaction-button.zero:hover {
+  filter: none;
+}
+
+.reaction-button.delete {
+  filter: none;
+}
+
+.reaction-button.delete:hover {
+  filter: saturate(10) hue-rotate(120deg);
+}
+
+.reaction-button:active {
+  scale: 1.5;
+}
+
+.tab {
+  visibility: hidden;
+  padding-top: 4px;
+  height: 14px
+}
+
+.tab.tab-visible, .tab.tab-partial {
+  visibility: visible;
+}
   

@@ -4,6 +4,7 @@ import { SiWindows11 } from "react-icons/si";
 import "./ModalInput.css";
 
 export default function ModalInput({
+  icon,
   title,
   prompt,
   placeholder,
@@ -14,8 +15,7 @@ export default function ModalInput({
 
   return (
     <>
-      {/* <button onClick={() => setOpen(true)}>Open sheet</button> */}
-      <SiWindows11 onClick={() => setOpen(true)} className="icon-button" />
+      <div onClick={() => setOpen(true)} >{icon ? icon : <SiWindows11 className="icon-button" />}</div>
 
       <Sheet
         isOpen={isOpen}
@@ -32,7 +32,7 @@ export default function ModalInput({
               }}
               id="modal"
             >
-              <SiWindows11 className="icon-button" />
+              <div onClick={() => setOpen(false)} >{icon ? icon : <SiWindows11 className="icon-button" />}</div>
               <h2>{title}</h2>
               <p>{prompt}</p>
               <form
