@@ -3,21 +3,28 @@
 }
 
 #modal button {
-  --clr: #2bb129;
+  --clr: rgb(24, 160, 216);
   border: 2px solid var(--clr);
   color: var(--clr);
   outline: none;
   background: transparent;
-  font-size: 14px;
-  padding: 10px 20px;
+  font-size: 12px;
+  padding: 8px 12px;
   font-weight: bold;
   border-radius: 100vmax;
-  transition: all 200ms linear;
+  transition: all 150ms linear;
 }
 
 #modal button:hover {
   background-color: var(--clr);
   color: white;
+}
+
+#modal form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 #modal input {
