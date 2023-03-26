@@ -1,7 +1,7 @@
 import "./LandingPage.css";
 import { SignIn } from "../Auth";
 import { useState, useEffect } from "react";
-import logo from "../../../src/images/logo1.png";
+import logo from "../../images/logo2.png";
 export default function LandingPage() {
   const [loading, setLoading] = useState("loading");
   useEffect(() => {
