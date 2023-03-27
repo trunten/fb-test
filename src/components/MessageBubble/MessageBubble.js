@@ -40,7 +40,21 @@ export default function MessageBubble({ message }) {
   }
 
   function hasReactions() {
-    return (message.like || 0) + (message.smile || 0) + (message.heart || 0) > 0;
+    const smileCount = JSON.parse(message.smile || "[]").length;
+    const likeCount = JSON.parse(message.like || "[]").length;
+    const heartCount = JSON.parse(message.heart || "[]").length;
+    return (likeCount || 0) + (smileCount || 0) + (heartCount || 0) > 0;
+  }
+
+  function updateReactions(arrayString) {
+    let arr = JSON.parse(arrayString || "[]");
+    if (!Array.isArray(arr)) { arr = []; }
+    if (arr.includes(auth.currentUser.uid)) {
+      arr = arr.filter(e => e !== auth.currentUser.uid);
+    } else {
+      arr.push(auth.currentUser.uid);
+    }
+    return arr;
   }
 
   // Mouse over for emoji
@@ -51,15 +65,19 @@ export default function MessageBubble({ message }) {
       audio.play();
     };
     handleClick();
+    let arr;
     if (emoji === "🙂") {
-      await ref.update({ smile: (message.smile || 0) + 1 });
-    }
-
-    if (emoji === "❤️") {
-      await ref.update({ heart: (message.heart || 0) + 1 });
-    }
-    if (emoji === "👍") {
-      await ref.update({ like: (message.like || 0) + 1 });
+      arr = updateReactions(message.smile);
+      await ref.update({ smile: JSON.stringify(arr) });
+      // await ref.update({ smile: (message.smile || 0) + 1 });
+    } else if (emoji === "❤️") {
+      arr = updateReactions(message.heart);
+      await ref.update({ heart: JSON.stringify(arr) });
+      // await ref.update({ heart: (message.heart || 0) + 1 });
+    } else if (emoji === "👍") {
+      arr = updateReactions(message.like);
+      await ref.update({ like: JSON.stringify(arr) });
+      // await ref.update({ like: (message.like || 0) + 1 });
     }
   };
 
@@ -98,28 +116,28 @@ export default function MessageBubble({ message }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          {(showTab === "tab-visible" || (showTab === "tab-partial" && message.smile > 0) ) && <motion.button
+          {(showTab === "tab-visible" || (showTab === "tab-partial" && (message.smile || "[]") !== "[]" )) && <motion.button
           onClick={() => addReaction("🙂")}
-          className={`reaction-button ${isClicked ? "clicked" : ""} ${message.smile > 0 ? "": "zero"}`}
+          className={`reaction-button ${isClicked ? "clicked" : ""} ${(message.smile || "[]") !== "[]" ? "": "zero"}`}
           whileTap={{ scale: 1.2 }}
         >
-          <span>{message.smile}</span>
+          <span>{JSON.parse(message.smile || "[]").length || " "}</span>
           <span>🙂</span>
         </motion.button>}
-        {(showTab === "tab-visible" || (showTab === "tab-partial" && message.heart > 0) ) && <motion.button
+        {(showTab === "tab-visible" || (showTab === "tab-partial" && (message.heart || "[]") !== "[]") ) && <motion.button
           onClick={() => addReaction("❤️")}
-          className={`reaction-button ${isClicked ? "clicked" : ""} ${message.heart > 0 ? "": "zero"}`}
+          className={`reaction-button ${isClicked ? "clicked" : ""} ${(message.heart || "[]") !== "[]" ? "": "zero"}`}
           whileTap={{ scale: 1.2 }}
         >
-          <span>{message.heart}</span>
+          <span>{JSON.parse(message.heart || "[]").length || " "}</span>
           <span>❤️</span>
         </motion.button>}
-        {(showTab === "tab-visible" || (showTab === "tab-partial" && message.like > 0) ) && <motion.button
+        {(showTab === "tab-visible" || (showTab === "tab-partial" && (message.like || "[]") !== "[]") ) && <motion.button
           onClick={() => addReaction("👍")}
-          className={`reaction-button ${isClicked ? "clicked" : ""} ${message.like > 0 ? "": "zero"}`}
+          className={`reaction-button ${isClicked ? "clicked" : ""} ${(message.like || "[]") !== "[]" ? "": "zero"}`}
           whileTap={{ scale: 1.2 }}
         >
-          <span>{message.like}</span>
+          <span>{JSON.parse(message.like || "[]").length || " "}</span>
           <span>👍</span>
         </motion.button>}
         { showTab === "tab-visible" && uid === auth.currentUser.uid 
