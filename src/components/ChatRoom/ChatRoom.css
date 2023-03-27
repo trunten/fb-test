@@ -1,3 +1,6 @@
+body{
+  background-color: rgb(201, 214, 220);
+}
 #chat-container  {
   border: 1px solid rgb(160, 160, 160);
   box-shadow: inset 0px 5px var(--primary-clr);
@@ -8,6 +11,8 @@
   padding: 0;
   height: 100vh;
   position: relative;
+  background-color: white;
+  
 }
 
 #chat-container .chatroom {
