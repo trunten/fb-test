@@ -20,7 +20,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  background-color: rgb(201, 214, 220);
+  background-color: rgba(201, 214, 220, 0.1);
 }
 
 code {
@@ -57,8 +57,8 @@ header {
   /* background-color: rgba(46, 106, 246, 0.85); */
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(5px);
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   border-top: 4px solid var(--primary-clr);
   border-bottom: 1px solid rgb(219, 218, 218);
 }
