@@ -91,19 +91,25 @@
   font-size: inherit;
   font-family: inherit;
   font-weight: bold;
-  transition: 0.6s;
+  transition: all 200ms linear;
 }
 
 #splash button:hover {
-  background-color: #189ed8;
-  color: white;
-  border: blue;
+  background-color: var(--primary-clr);
+  color: rgb(237, 239, 246);;
+  border-color: #127199;
 }
 
 @media (max-width: 500px) {
-  #splash .card-body{
-    scale: 0.6;
+  .gradient-overlay {
+    visibility: hidden;
   }
+
+  #splash {
+    background-image: none;
+    background-color: rgb(237, 239, 246);;
+  }
+  
   #splash .card{
     overflow-x: hidden ;
   }

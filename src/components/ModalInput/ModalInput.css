@@ -36,3 +36,9 @@
 #modal h2 {
   margin-top: 10px;
 }
+
+@media screen and (max-width: 420px) {
+  #modal {
+    height: 450px !important;
+  }
+}
