@@ -8,9 +8,14 @@
       "type": "image/png"
     },
     {
+      "src": "logo180.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "180x180 192x192"
+      "sizes": "180x180"
     },
     {
       "src": "logo512.png",
