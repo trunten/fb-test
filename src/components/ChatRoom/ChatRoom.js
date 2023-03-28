@@ -31,9 +31,9 @@ export default function ChatRoom() {
   function formSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
-    const { uid, photoURL } = auth.currentUser;
+    const { uid, photoURL, displayName } = auth.currentUser;
     const text = msgText.current.value;
-    sendMessage({ uid, photoURL, text, roomID });
+    sendMessage({ uid, photoURL, text, roomID, initial: displayName.charAt(0).toUpperCase() });
     msgText.current.value = "";
     if (text.toLowerCase().includes("@bot")) {
       Chatbot(text, (response) => {

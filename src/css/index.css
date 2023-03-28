@@ -1,12 +1,5 @@
 :root {
   --primary-clr: #189ed8;
-  /* --secondary-clr: #ed6d54; */
-  /* --secondary-clr: #d85118; */
-  /* --secondary-clr: #d8183e; */
-  /* --secondary-clr: #e4e3e6; */
-  /* --secondary-clr: #d8b218; */
-  /* --secondary-clr: #8ec116; */
-  /* --secondary-clr: #d8189e; */
   --secondary-clr: #13af90;
   --primary-txt: #ffffff;
   --secondary-txt: #ffffff;
@@ -20,7 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  background-color: rgba(201, 214, 220, 0.1);
+  background-color: rgba(201, 214, 220, 0.15);
 }
 
 code {
