@@ -1,5 +1,5 @@
 import Sheet from "react-modal-sheet";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { SiWindows11 } from "react-icons/si";
 import "./ModalInput.css";
 
@@ -11,12 +11,8 @@ export default function ModalInput({
   modalSubmit,
 }) {
   const [isOpen, setOpen] = useState(false);
-  const inputValue = useRef(0);
+  const inputValue = useRef();
 
-  // Set focus on text input field after modal has finished animating
-  useEffect(() => {
-    setTimeout(()=>inputValue.current?.focus && inputValue.current.focus(), 1000);
-  })
 
   return (
     <>
@@ -26,6 +22,7 @@ export default function ModalInput({
         isOpen={isOpen}
         onClose={() => setOpen(false)}
         detent="content-height"
+        onAfterOpen={setTimeout(()=>inputValue?.current?.focus(),1000)}
       >
         <Sheet.Container>
           <Sheet.Header />
@@ -49,7 +46,7 @@ export default function ModalInput({
                   inputValue.current.value = "";
                 }}
               >
-                <input 
+                <input
                   ref={inputValue}
                   name="room"
                   placeholder={placeholder || ""}
