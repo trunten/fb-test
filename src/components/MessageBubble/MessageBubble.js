@@ -10,23 +10,24 @@ import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Assets
-import bot from "../../images/bot.png";
 import "./MessageBubble.css";
+import bot from "../../images/bot.png";
+import avatar from "../../images/avatar.jpg";
 import sound from "../../sound/facebookchat.mp3";
 import trash from "../../sound/trash.mp3";
 
 export default function MessageBubble({ message }) {
   // Usestates
-  const textRef = useRef(null);
+  const textRef = useRef();
   const [showTab, setShowTab] = useState(hasReactions() ? "tab-partial" : "");
   const [isClicked, setIsClicked] = useState(false);
-  useEffect(()=>setShowTab("tab-partial"), [])
-
+  const [imgError, setImgError] = useState(false)
   const { auth, firestore } = useContext(FirebaseContext);
-  const { text, uid, photoURL, isBot } = message;
-  // console.log(message.img || "")
+  const { text, uid, photoURL, initial, isBot } = message;
   const className = uid === auth.currentUser.uid ? "sent" : "received";
   const ref = firestore.collection("messages").doc(message.id);
+
+  useEffect(()=>setShowTab("tab-partial"), [])
 
   function deleteMessage(e) {
     if (uid === auth.currentUser.uid) {
@@ -99,8 +100,10 @@ export default function MessageBubble({ message }) {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className={`message ${className}`}>
-        <img src={isBot ? bot : photoURL} alt="avatar" />
+      <div className={`message ${className}`} >
+        <div className="img-wrapper" style={{position:"relative"}} data-initial={imgError ? initial : ""} >
+        <img src={isBot ? bot : (imgError ? avatar : photoURL)} alt={initial || "avatar"} onError={()=>setImgError(true)} />
+        </div>
         <p>
           <Linkify>{text}</Linkify>
         </p>
@@ -140,7 +143,7 @@ export default function MessageBubble({ message }) {
           <span>{JSON.parse(message.like || "[]").length || " "}</span>
           <span>👍</span>
         </motion.button>}
-        { showTab === "tab-visible" && uid === auth.currentUser.uid 
+        { showTab === "tab-visible" && uid === auth.currentUser.uid
           ? (
               <motion.button onClick={deleteMessage} className="reaction-button zero delete" whileTap={{ scale: 1.2 }}>
                 <span>🗑</span>

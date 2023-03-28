@@ -7,6 +7,7 @@ const configuration = new Configuration({
 export async function Chatbot(query, callback) {
   if (!query) { return; }
   query = query.replace(/@bot/ig, "");
+  if (query.replaceAll(" ","").length === 0) { query = "Hello"; }
   const openai = new OpenAIApi(configuration);
   
   const completion = await openai.createChatCompletion({

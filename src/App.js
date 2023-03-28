@@ -30,12 +30,12 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 export default function App() {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   return (
     <div className="App">
       <FirebaseContext.Provider value={{ firebase, auth, firestore }}>
-        {user 
+        {loading ? <></> : user 
           ? (<>
               <header>
                 <div className="app-header">
