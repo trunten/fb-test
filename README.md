@@ -65,7 +65,7 @@ The application will be complete when it satisfies all of the above acceptance c
 
 ## Installation
 
-N/A
+Run npm start
 
 ## Usage
 
