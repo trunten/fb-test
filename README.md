@@ -24,6 +24,34 @@ As a user
 - SO THAT I can chat with others about everything, everywhere, I can ask everything and etc.
 ```
 
+### Acceptance Criteria
+
+* It will be done when user log in through google account.
+* User can chat with each other in the chatroom.
+* User can ask robot whatever they want to know.
+* User can create a breakout room to have their own talk.
+* User can give others like,thumbs up and smile.
+* User can delete their own message.
+
+The application will be complete when it satisfies all of the above acceptance criteria plus the following:
+* Uses use ReactJS,Node.
+* Have both GET and POST routes for retrieving and adding new data
+* Deploy this application using Netlify.
+* At least two libraries, packages, or technologies that we haven't discussed.
+    * Use [Firebase API](https://firebase.google.com) for entire backend and user authentication / sign-in
+    * Use [Chat GPT API](https://platform.openai.com/docs/introduction) for chatbot
+    * Use [Geocoding to City API](https://www.bigdatacloud.com/docs/api/free-reverse-geocode-to-city-api) to get user location for weather query
+    * Use [Weather API](https://www.visualcrossing.com) for current weather
+    * NPM packages used in the project
+        * [react-toastify](https://www.npmjs.com/package/react-toastify) npm i react-toastify
+        * [firebase](https://www.npmjs.com/package/firebase) npm i firebase
+        * [framer-motion](https://www.npmjs.com/package/framer-motion) npm i framer-motion
+        * [react-firebase-hooks](https://www.npmjs.com/package/react-firebase-hooks) npm i react-firebase-hooks
+        * [react-icons](https://www.npmjs.com/package/react-icons) npm i react-icons
+        * [react-linkify](https://www.npmjs.com/package/react-linkify) npm i react-linkify
+        * [react-modal-sheet](https://www.npmjs.com/package/react-modal-sheet) npm i react-modal-sheet       
+* Have a polished front end/UI.
+
 
 ## Table of contents
 - [Installation](#installation)
