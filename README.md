@@ -24,13 +24,6 @@ As a user
 ```
 
 
- * Uses the [UK Police Data API](https://data.police.uk/docs/) to get the crime in searched area.
- * Uses [OpenWeatherMap](https://openweathermap.org/api/geocoding-api) to get the longitude and latitude.
- * Uses the [UK Police Force API](https://data.police.uk/docs/method/force/) to get a brief summary of the localities police force.
- * Uses the [Google Places API](https://developers.google.com/maps/documentation/places/web-service/autocomplete) to get an autocomplete list as the user types
-  * Uses a [Reverse Geocoding API](https://api.bigdatacloud.net/data/reverse-geocode-client) to get the approximate user location by IP address
-  * Uses https://api.sunrise-sunset.org to calculate the sun rise/sunset for a given location
-
 ## Table of contents
 - [Installation](#installation)
 - [Usage](#usage)
