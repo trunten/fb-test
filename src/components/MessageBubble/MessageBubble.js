@@ -66,7 +66,7 @@ export default function MessageBubble({ message }) {
     };
     handleClick();
     let arr;
-    if (emoji === "🙂") {
+    if (emoji === "😂") {
       arr = updateReactions(message.smile);
       await ref.update({ smile: JSON.stringify(arr) });
       // await ref.update({ smile: (message.smile || 0) + 1 });
@@ -117,12 +117,12 @@ export default function MessageBubble({ message }) {
           animate={{ opacity: 1 }}
         >
           {(showTab === "tab-visible" || (showTab === "tab-partial" && (message.smile || "[]") !== "[]" )) && <motion.button
-          onClick={() => addReaction("🙂")}
+          onClick={() => addReaction("😂")}
           className={`reaction-button ${isClicked ? "clicked" : ""} ${(message.smile || "[]") !== "[]" ? "": "zero"}`}
           whileTap={{ scale: 1.2 }}
         >
           <span>{JSON.parse(message.smile || "[]").length || " "}</span>
-          <span>🙂</span>
+          <span>😂</span>
         </motion.button>}
         {(showTab === "tab-visible" || (showTab === "tab-partial" && (message.heart || "[]") !== "[]") ) && <motion.button
           onClick={() => addReaction("❤️")}
