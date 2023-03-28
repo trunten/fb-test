@@ -37,20 +37,22 @@ The application will be complete when it satisfies all of the above acceptance c
 * Uses use ReactJS,Node.
 * Have both GET and POST routes for retrieving and adding new data
 * Deploy this application using Netlify.
-* At least two libraries, packages, or technologies that we haven't discussed.
-    * Use [Firebase API](https://firebase.google.com) for entire backend and user authentication / sign-in
-    * Use [Chat GPT API](https://platform.openai.com/docs/introduction) for chatbot
-    * Use [Geocoding to City API](https://www.bigdatacloud.com/docs/api/free-reverse-geocode-to-city-api) to get user location for weather query
-    * Use [Weather API](https://www.visualcrossing.com) for current weather
-    * NPM packages used in the project
-        * [react-toastify](https://www.npmjs.com/package/react-toastify) npm i react-toastify
-        * [firebase](https://www.npmjs.com/package/firebase) npm i firebase
-        * [framer-motion](https://www.npmjs.com/package/framer-motion) npm i framer-motion
-        * [react-firebase-hooks](https://www.npmjs.com/package/react-firebase-hooks) npm i react-firebase-hooks
-        * [react-icons](https://www.npmjs.com/package/react-icons) npm i react-icons
-        * [react-linkify](https://www.npmjs.com/package/react-linkify) npm i react-linkify
-        * [react-modal-sheet](https://www.npmjs.com/package/react-modal-sheet) npm i react-modal-sheet       
+* At least two libraries, packages, or technologies that we haven't discussed.      
 * Have a polished front end/UI.
+
+### The APIs we used and the function
+* Use [Firebase API](https://firebase.google.com) for entire backend and user authentication / sign-in
+* Use [Chat GPT API](https://platform.openai.com/docs/introduction) for chatbot
+* Use [Geocoding to City API](https://www.bigdatacloud.com/docs/api/free-reverse-geocode-to-city-api) to get user location for weather query
+* Use [Weather API](https://www.visualcrossing.com) for current weather
+* NPM packages used in the project
+    * [react-toastify](https://www.npmjs.com/package/react-toastify), React notification made easy (npm i react-toastify)
+    * [firebase](https://www.npmjs.com/package/firebase), Firebase JavaScript library for web and Node.js(npm i firebase) 
+    * [framer-motion](https://www.npmjs.com/package/framer-motion), A simple and powerful React and JavaScript animation library(npm i framer-motion) 
+    * [react-firebase-hooks](https://www.npmjs.com/package/react-firebase-hooks), React Hooks for Firebase (npm i react-firebase-hooks)
+    * [react-icons](https://www.npmjs.com/package/react-icons), SVG React icons of popular icon packs using ES6 imports(npm i react-icons)
+    * [react-linkify](https://www.npmjs.com/package/react-linkify), React component to parse links (urls, emails, etc.) in text into clickable links(npm i react-linkify) 
+    * [react-modal-sheet](https://www.npmjs.com/package/react-modal-sheet), Flexible bottom sheet component for your React apps(npm i react-modal-sheet) 
 
 
 ## Table of contents
