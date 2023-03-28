@@ -1,8 +1,23 @@
 .message img {
   border-radius: 50%;
   width: 35px;
+  height: 35px;
   align-self: end;
+  background-color: grey;
+  position: relative;
 }
+
+.img-wrapper::after {
+  display: block;
+  content: attr(data-initial);
+  position: absolute;
+  top: 21%;
+  left: 32%;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+}
+
 
 .message {
   display: flex;

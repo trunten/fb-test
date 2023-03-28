@@ -11,7 +11,8 @@ export default function ModalInput({
   modalSubmit,
 }) {
   const [isOpen, setOpen] = useState(false);
-  const inputValue = useRef(0);
+  const inputValue = useRef();
+
 
   return (
     <>
@@ -46,6 +47,7 @@ export default function ModalInput({
               >
                 <input
                   ref={inputValue}
+                  name="room"
                   placeholder={placeholder || ""}
                   required
                 />
