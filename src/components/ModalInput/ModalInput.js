@@ -22,7 +22,6 @@ export default function ModalInput({
         isOpen={isOpen}
         onClose={() => setOpen(false)}
         detent="content-height"
-        onAfterOpen={setTimeout(()=>inputValue?.current?.focus(),1000)}
       >
         <Sheet.Container>
           <Sheet.Header />
