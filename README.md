@@ -10,7 +10,7 @@ A lightweight chatting software, you can chat with the world about everything, e
 
 
 ### Our motivation for development
-We want
+We want to chat with the world about everything, everywhere. More concise, more easy to begin.
 
 
 
@@ -69,13 +69,20 @@ Run npm start
 
 ## Usage
 
+* User can log in through google account.
+* User can chat with each other in the chatroom.
+* User can ask robot whatever they want to know.
+* User can create or join a breakout room to have their own talk.
+* User can give others like,thumbs up and smile.
+* User can delete their own message.
 
  ### App screenshots
 
 
 
  ## Future Development
- 
+* Try to migrate from web to desktop 
+
 
 ## Credits
 - Header background images: [Unsplash.com](https://unsplash.com/)
