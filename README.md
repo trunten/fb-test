@@ -1,4 +1,4 @@
-# chatterbox
+# Chatterbox
 
 * Github URL:https://github.com/trunten/ubbc-chatterbox
 * Deployed Site: chatterbox-web.netlify.app
@@ -10,7 +10,7 @@ A lightweight chatting software, you can chat with the world about everything, e
 
 
 ### Our motivation for development
-We want
+We want to chat with the world about everything, everywhere. More concise, more easy to begin.
 
 
 
@@ -60,7 +60,6 @@ The application will be complete when it satisfies all of the above acceptance c
 - [Installation](#installation)
 - [Usage](#usage)
 - [Future Development](#future-development)
-- [Credits](#credits)
 - [License](#license)
 
 ## Installation
@@ -69,17 +68,36 @@ Run npm start
 
 ## Usage
 
+* User can log in through google account.
+* User can chat with each other in the chatroom.
+* User can ask robot whatever they want to know.
+* User can create or join a breakout room to have their own talk.
+* User can give others like,thumbs up and smile.
+* User can delete their own message.
 
  ### App screenshots
+
+<table>
+   <tr>
+      <td><img src="./src/images/log-in.png"></td>
+      <td><img src="./src/images/chatroom.png"></td>
+   </tr>
+   <tr>
+      <td><img src="./src/images/breakoutroom.png"></td>
+      <td><img src="./src/images/Screen Shot 2023-03-28 at 20.16.57.png"></td>
+   </tr>
+</table> 
 
 
 
  ## Future Development
- 
+* Try to migrate from web to desktop 
+* Custom emoji reactions
+* Message edits
+* Breakout room directory
+* Breakout room share button
+* Timestamp to messages
 
-## Credits
-- Header background images: [Unsplash.com](https://unsplash.com/)
-- Favicon: https://www.flaticon.com/
 
 ## License
 Please refer to the [LICENSE (MIT)](LICENSE) in the repo.
