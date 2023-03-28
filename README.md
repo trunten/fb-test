@@ -5,11 +5,12 @@
 * Presentation: [PDF File](./assets/)
 
 ## Description
+A lightweight chatting software, you can chat with the world about everything, everywhere, you can chat with robot, you can chat in your private room.
 
 
 
 ### Our motivation for development
-
+We want
 
 
 
