@@ -17,10 +17,11 @@
 
 ```
 As a user
-- I want to  
-- I want to 
-- I also want to  
-- SO THAT I can 
+- I want to have a lightweight online chat software 
+- I want to have a robot,I can ask him question and get the answer.
+- I want to interact with other logins, give them like,thumbs up and etc.
+- I also want to have a breakout room, so I can have private chat.
+- SO THAT I can chat with others about everything, everywhere, I can ask everything and etc.
 ```
 
 
