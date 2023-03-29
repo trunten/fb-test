@@ -100,7 +100,7 @@ export default function MessageBubble({ message }) {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className={`message ${className}`} >
+      <div className={`message ${className}`} data-time={message.createdAt?.toDate?.().toLocaleString?.()?.slice?.(0,-3) || ""}>
         <div className="img-wrapper" style={{position:"relative"}} data-initial={imgError ? initial : ""} >
         <img src={isBot ? bot : (imgError ? avatar : photoURL)} alt={initial || "avatar"} onError={()=>setImgError(true)} />
         </div>
