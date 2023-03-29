@@ -91,12 +91,12 @@ Run npm start
 
 
  ## Future Development
-* Try to migrate from web to desktop 
+* Desktop application (electron)
 * Custom emoji reactions
 * Message edits
 * Breakout room directory
-* Breakout room share button
-* Timestamp to messages
+* npm package - react-firechat!
+* Profanity filter (or use the perspective api to get AI filtering of harmful/toxic comments)
 
 
 ## License
