@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.img-wrapper {
+  align-self: end;
+}
+
 .img-wrapper::after {
   display: block;
   content: attr(data-initial);
@@ -23,6 +27,7 @@
   display: flex;
   align-items: center;
   max-width: 85%;
+  position: relative;
 }
 
 .message a {
@@ -41,6 +46,25 @@
   overflow-y: scroll;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
+}
+
+.message::after {
+  display: block;
+  content: attr(data-time);
+  font-size: 11px;
+  margin-bottom: 6px;
+  text-align: start;
+  position: absolute;
+  top: -14px;
+  margin: 0 50px;
+  width: max-content;
+  color: #545454;
+  opacity: 0;
+  transition: opacity 250ms linear;
+}
+
+.message:hover::after {
+  opacity: 1;
 }
 
 .message > p::-webkit-scrollbar { 
