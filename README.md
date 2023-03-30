@@ -114,7 +114,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 This repo adopts the [Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) for contributing guidlines.
 
-#Authors
+## Authors
 - Jonathan Davis (https://github.com/trunten)
 - Samuel Tuki (https://github.com/samueltuki)
 - Toyosi Akindele (https://github.com/hurlavic)
