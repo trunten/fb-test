@@ -79,12 +79,12 @@ Run npm start
 
 <table>
    <tr>
-      <td><img src="./src/images/log-in.png"></td>
-      <td><img src="./src/images/chatroom.png"></td>
+      <td><img src="./src/images/screenshots/log-in.png"></td>
+      <td><img src="./src/images/screenshots/chatroom.png"></td>
    </tr>
    <tr>
-      <td><img src="./src/images/breakoutroom.png"></td>
-      <td><img src="./src/images/Screen Shot 2023-03-28 at 20.16.57.png"></td>
+      <td><img src="./src/images/screenshots/breakoutroom.png"></td>
+      <td><img src="./src/images/screenshots/chatbot.png"></td>
    </tr>
 </table> 
 

@@ -125,7 +125,7 @@ export default function MessageBubble({ message }) {
           whileTap={{ scale: 1.2 }}
         >
           <span>{JSON.parse(message.smile || "[]").length || " "}</span>
-          <span>😂</span>
+          <span style={/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)? {fontSize:"13px"}:{}}>😂</span>
         </motion.button>}
         {(showTab === "tab-visible" || (showTab === "tab-partial" && (message.heart || "[]") !== "[]") ) && <motion.button
           onClick={() => addReaction("❤️")}
