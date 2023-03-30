@@ -6,6 +6,9 @@
 * Github URL: https://github.com/trunten/ubbc-chatterbox
 * Deployed Site: https://chatterbox-web.netlify.app
 * Presentation: [PDF File](https://github.com/trunten/ubbc-chatterbox/raw/main/src/images/screenshots/presentation.pdf)
+* Desktopp Apps:
+   - Mac Intel: [ChatterBox (Mac Intel.zip)](https://drive.google.com/uc?export=download&id=1rKfgN21YIVx1-zgoDZhHTQbKvkLSjPg8)
+   - Windows: [ChatterBox (Windows.zip)](https://drive.google.com/uc?export=download&id=15cJbKZ0411rikFFQfq9vxnYc_CNfC4PS)
 
 ## Description
 * A lightweight WhatsApp like chat app where you can chat with the world about everything, everywhere.
