@@ -1,5 +1,8 @@
 # Chatterbox
 
+[![License Badge](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
+
 * Github URL:https://github.com/trunten/ubbc-chatterbox
 * [Deployed Site](https://chatterbox-web.netlify.app)
 * Presentation: [PDF File](https://github.com/trunten/ubbc-chatterbox/raw/main/src/images/screenshots/presentation.pdf)
@@ -15,8 +18,17 @@
 * Manageable for 4 people in 2 weeks
 * It would be fun for people to be able to chat with anybody in the world about anything and everything.
 
-### User story
+## Table of contents
+- [Acceptance criteria](#acceptance)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Future Development](#future-development)
+- [Contributing](#contributing)
+- [License](#license)
 
+## Acceptance
+
+### User story
 ```
 As a user
 - I want to have a lightweight online chat software.
@@ -55,13 +67,6 @@ The application will be complete when it satisfies all of the above acceptance c
     * [react-linkify](https://www.npmjs.com/package/react-linkify), React component to parse links (urls, emails, etc.) in text into clickable links(npm i react-linkify) 
     * [react-modal-sheet](https://www.npmjs.com/package/react-modal-sheet), Flexible bottom sheet component for your React apps(npm i react-modal-sheet) 
 
-
-## Table of contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Future Development](#future-development)
-- [License](#license)
-
 ## Installation
 Run <code>npm start</code>
 
@@ -96,6 +101,10 @@ Run <code>npm start</code>
 * npm package - react-firechat!
 * Profanity filter (or use the perspective api to get AI filtering of harmful/toxic comments)
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+This repo adopts the [Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) for contributing guidlines.
 
 ## License
 Please refer to the [LICENSE (MIT)](LICENSE) in the repo.
