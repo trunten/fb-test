@@ -2,37 +2,37 @@
 
 * Github URL:https://github.com/trunten/ubbc-chatterbox
 * Deployed Site: chatterbox-web.netlify.app
-* Presentation: [PDF File](./assets/)
+* Presentation: [PDF File](https://github.com/trunten/ubbc-chatterbox/raw/main/src/images/screenshots/presentation.pdf)
 
 ## Description
-A lightweight chatting software, you can chat with the world about everything, everywhere, you can chat with robot, you can chat in your private room.
-
-
+* A lightweight WhatsApp like chat app where you can chat with the world about everything, everywhere.
+* You can chat with an AI powered chatbot
+* You can chat in a breakout room for a more private conversation or about a specific topic.
 
 ### Our motivation for development
-We want to chat with the world about everything, everywhere. More concise, more easy to begin.
-
-
+* We wanted to implement a backend that would update the UI live
+* A chat app was a natural fit
+* Manageable for 4 people in 2 weeks
+* It would be fun for people to be able to chat with anybody in the world about anything and everything.
 
 ### User story
 
 ```
 As a user
-- I want to have a lightweight online chat software 
-- I want to have a robot,I can ask him question and get the answer.
-- I want to interact with other logins, give them like,thumbs up and etc.
-- I also want to have a breakout room, so I can have private chat.
-- SO THAT I can chat with others about everything, everywhere, I can ask everything and etc.
+- I want to have a lightweight online chat software.
+- I want to have a chatbot that I can ask questions and get an answer.
+- I  want to interact with other messages, give them likes, thumbs up, etc.
+- I also want to have a breakout rooms, so I can have more private chats or conversations about a particular topic.
+- SO THAT I can chat with others about anything and  everything.
 ```
 
 ### Acceptance Criteria
-
-* It will be done when user log in through google account.
-* User can chat with each other in the chatroom.
-* User can ask robot whatever they want to know.
-* User can create a breakout room to have their own talk.
-* User can give others like,thumbs up and smile.
-* User can delete their own message.
+* Users can log in through their google account.
+* Users can chat with each other in the chatroom.
+* Users can ask a chatbot anything they want to know.
+* Users can create or join a breakout room to have their own conversations.
+* Users can give other messages likes, thumbs up and laughs.
+* Users can delete their own message.
 
 The application will be complete when it satisfies all of the above acceptance criteria plus the following:
 * Uses use ReactJS,Node.
@@ -63,20 +63,21 @@ The application will be complete when it satisfies all of the above acceptance c
 - [License](#license)
 
 ## Installation
-
-Run npm start
+Run <code>npm start</code>
 
 ## Usage
-
-* User can log in through google account.
-* User can chat with each other in the chatroom.
-* User can ask robot whatever they want to know.
-* User can create or join a breakout room to have their own talk.
-* User can give others like,thumbs up and smile.
-* User can delete their own message.
+[Deployed Application](https://chatterbox-web.netlify.app)
+- Login with your goole account by clicking on the sign in button
+- Type messages in the message input field at the buttom of the app and click the arrow to send
+- Hover over/tap on message bubbles to add/remove emoji reactions or delete your own messages
+- Tap/Click the breakout room button to the left of the input field to join/create a new chat room
+   - Leave a breakout room at any point by clicking the back arrow in the header (top left)
+- type <code>@bot</code> followed by your message to talk to the chatbot
+- type <code>@weather</code> to get your current weather
+- Hover over/tap on message bubbles to view message timestamps
+- Sign out at any time by clicking the sign out button.
 
  ### App screenshots
-
 <table>
    <tr>
       <td><img src="./src/images/screenshots/log-in.png"></td>
@@ -88,10 +89,7 @@ Run npm start
    </tr>
 </table> 
 
-
-
- ## Future Development
-* Desktop application (electron)
+## Future Development
 * Custom emoji reactions
 * Message edits
 * Breakout room directory
