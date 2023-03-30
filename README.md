@@ -107,4 +107,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 This repo adopts the [Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) for contributing guidlines.
 
 ## License
-Please refer to the [LICENSE (MIT)](LICENSE) in the repo.
+[![License Badge](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
+
+Refer to the [license](LICENSE) in the repo
