@@ -28,6 +28,7 @@
 - [Future Development](#future-development)
 - [Credits](#credits)
 - [Contributing](#contributing)
+- [Authors](#authors)
 - [License](#license)
 
 ## Acceptance
@@ -112,6 +113,12 @@ Run <code>npm start</code>
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 This repo adopts the [Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) for contributing guidlines.
+
+#Authors
+- Jonathan Davis (https://github.com/trunten)
+- Samuel Tuki (https://github.com/samueltuki)
+- Toyosi Akindele (https://github.com/hurlavic)
+- Hui Zhao (https://github.com/joy-hui)
 
 ## License
 [![License Badge](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
