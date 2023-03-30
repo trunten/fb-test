@@ -112,11 +112,13 @@
 }
 
 .reaction-button.delete {
+  font-weight: bold;
   filter: none;
 }
 
 .reaction-button.delete:hover {
   filter: saturate(10) hue-rotate(120deg);
+  color:blue;
 }
 
 .reaction-button:active {
