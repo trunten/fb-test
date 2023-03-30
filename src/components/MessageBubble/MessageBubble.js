@@ -146,7 +146,7 @@ export default function MessageBubble({ message }) {
         { showTab === "tab-visible" && uid === auth.currentUser.uid
           ? (
               <motion.button onClick={deleteMessage} className="reaction-button zero delete" whileTap={{ scale: 1.2 }}>
-                <span style={/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)? {}:{fontSize:"20px", fontWeight:"bold"}}>🗑</span>
+                <span style={/(win)/i.test(navigator.platform)?{fontSize:"20px", fontWeight:"bold"}:{}}>🗑</span>
               </motion.button> 
             )
           : "" }
