@@ -23,6 +23,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Future Development](#future-development)
+- [Credits](#credits)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -100,6 +101,9 @@ Run <code>npm start</code>
 * Breakout room directory
 * npm package - react-firechat!
 * Profanity filter (or use the perspective api to get AI filtering of harmful/toxic comments)
+
+## Credits
+- App icons: [flaticon.com](https://www.flaticon.com) & [react icons](https://marketplace.visualstudio.com/items?itemName=afzalsayed96.reacticons)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
