@@ -3,8 +3,8 @@
 [![License Badge](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
 
-* Github URL:https://github.com/trunten/ubbc-chatterbox
-* [Deployed Site](https://chatterbox-web.netlify.app)
+* Github URL: https://github.com/trunten/ubbc-chatterbox
+* Deployed Site: https://chatterbox-web.netlify.app
 * Presentation: [PDF File](https://github.com/trunten/ubbc-chatterbox/raw/main/src/images/screenshots/presentation.pdf)
 
 ## Description
