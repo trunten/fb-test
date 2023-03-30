@@ -1,7 +1,7 @@
 # Chatterbox
 
 * Github URL:https://github.com/trunten/ubbc-chatterbox
-* Deployed Site: chatterbox-web.netlify.app
+* [Deployed Site](https://chatterbox-web.netlify.app)
 * Presentation: [PDF File](https://github.com/trunten/ubbc-chatterbox/raw/main/src/images/screenshots/presentation.pdf)
 
 ## Description
@@ -66,7 +66,7 @@ The application will be complete when it satisfies all of the above acceptance c
 Run <code>npm start</code>
 
 ## Usage
-[Deployed Application](https://chatterbox-web.netlify.app)
+- [Deployed Application](https://chatterbox-web.netlify.app)
 - Login with your goole account by clicking on the sign in button
 - Type messages in the message input field at the buttom of the app and click the arrow to send
 - Hover over/tap on message bubbles to add/remove emoji reactions or delete your own messages
