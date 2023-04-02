@@ -1,6 +1,6 @@
 import { Configuration, OpenAIApi } from "openai";
 const configuration = new Configuration({
-    organization: "org-gybCGKm4ELCFqviRgMMUcoay",
+    organization: process.env.REACT_APP_OPENAI_ORGANIZATION,
     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
 });
 
@@ -10,12 +10,17 @@ export async function Chatbot(query, callback) {
   if (query.replaceAll(" ","").length === 0) { query = "Hello"; }
   const openai = new OpenAIApi(configuration);
   
-  const completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
-    messages: [{role: "user", content: query}],
-  });
-  const text = completion.data.choices[0].message.content;
-  callback(text);
+  try {
+      const completion = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "user", content: query}],
+      });
+    const text = completion.data.choices[0].message.content;
+    callback(text);
+  } catch(e) {
+    const text = "Sorry I'm a bit tired right now. Try again next month 😴"
+    callback(text);
+  }
 }
 
 export async function WeatherBot(callback) {
