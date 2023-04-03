@@ -20,20 +20,20 @@ import "react-toastify/dist/ReactToastify.css";
 const mb = { marginBottom: "10px" };
 
 export default function ChatRoom() {
+  const roomID = (new URLSearchParams(document.location.search).get("roomid") || "chatterbox").toLowerCase();
   const { auth, firestore } = useContext(FirebaseContext);
   const messagesCollection = firestore.collection("messages");
-  const query = messagesCollection.orderBy("createdAt").limitToLast(300);
+  const query = messagesCollection.where("roomID", "==", roomID).orderBy("createdAt").limitToLast(300);
   const [messages] = useCollectionData(query, { idField: "id" });
   const msgText = useRef(0);
   const bottom = useRef(0);
-  const roomID = new URLSearchParams(document.location.search).get("roomid") || "chatterbox";
 
   function formSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
     const { uid, photoURL, displayName } = auth.currentUser;
     const text = msgText.current.value;
-    sendMessage({ uid, photoURL, text, roomID, initial: displayName.charAt(0).toUpperCase() });
+    sendMessage({ uid, photoURL, text, roomID, displayName });
     msgText.current.value = "";
     if (text.toLowerCase().includes("@bot")) {
       Chatbot(text, (response) => {

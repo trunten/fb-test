@@ -23,9 +23,10 @@ export default function MessageBubble({ message }) {
   const [isClicked, setIsClicked] = useState(false);
   const [imgError, setImgError] = useState(false)
   const { auth, firestore } = useContext(FirebaseContext);
-  const { text, uid, photoURL, initial, isBot } = message;
+  const { text, uid, photoURL, displayName, isBot } = message;
   const className = uid === auth.currentUser.uid ? "sent" : "received";
   const ref = firestore.collection("messages").doc(message.id);
+  const initial = displayName?.charAt(0).toUpperCase() ?? "";
 
   useEffect(()=>setShowTab("tab-partial"), [])
 
