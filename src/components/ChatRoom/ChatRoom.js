@@ -46,6 +46,7 @@ export default function ChatRoom() {
           uid: "chatbot",
           isBot: true,
           roomID,
+          icon: weather.icon
         });
       });
     }
