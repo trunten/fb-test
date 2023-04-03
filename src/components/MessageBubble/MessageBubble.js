@@ -144,7 +144,7 @@ export default function MessageBubble({ message }) {
           <span>{JSON.parse(message.like || "[]").length || " "}</span>
           <span>👍</span>
         </motion.button>}
-        { showTab === "tab-visible" && uid === auth.currentUser.uid
+        { showTab === "tab-visible" && uid === auth.currentUser.uid && message.createdAt?.toDate?.() > new Date(Date.now() - 60000)
           ? (
               <motion.button onClick={deleteMessage} className="reaction-button zero delete" whileTap={{ scale: 1.2 }}>
                 <span style={/(win)/i.test(navigator.platform)?{fontSize:"20px", fontWeight:"bold"}:{}}>🗑</span>
