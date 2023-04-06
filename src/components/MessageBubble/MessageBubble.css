@@ -48,6 +48,14 @@
   scrollbar-width: none;  /* Firefox */
 }
 
+.message > p p {
+  margin-block:0;
+}
+
+.message > p code {
+  color: black;
+}
+
 .message::after {
   display: block;
   content: attr(data-time);
@@ -58,7 +66,7 @@
   top: -14px;
   margin: 0 50px;
   width: max-content;
-  color: #545454;
+  color: #9b9b9b;
   opacity: 0;
   transition: opacity 250ms linear;
 }

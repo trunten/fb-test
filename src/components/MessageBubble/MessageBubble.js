@@ -3,11 +3,13 @@ import { useContext } from "react";
 import { FirebaseContext } from "../../App";
 
 // Anchor tags from urls in text
-import Linkify from "react-linkify";
+// import Linkify from "react-linkify"; // replaced with markdown. May revert (npm install react-linkify)
 
 // Import react libraries
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 // Assets
 import "./MessageBubble.css";
@@ -106,7 +108,19 @@ export default function MessageBubble({ message }) {
         <img src={isBot ? bot : (imgError ? avatar : photoURL)} alt={initial || "avatar"} onError={()=>setImgError(true)} />
         </div>
         <p style={{display:"flex", alignItems:"center", gap:"10px"}}>
-        {message.icon && <><img style={{margin:"auto", backgroundColor:"inherit", borderRadius:"0", width:"auto", height:"25px"}} src={`${process.env.PUBLIC_URL}/weather/${message.icon}.svg`} alt="weather conditions" onError={(e)=>e.target.remove()} /></>}<div style={{whiteSpace:"pre-wrap", alignSelf:message.icon?"center":"flex-start"}}><Linkify>{text}</Linkify></div>
+        {message.icon && 
+          <>
+            <img 
+              style={{margin:"auto", backgroundColor:"inherit", borderRadius:"0", width:"auto", height:"25px"}} 
+              src={`${process.env.PUBLIC_URL}/weather/${message.icon}.svg`} 
+              alt="weather conditions" 
+              onError={(e)=>e.target.remove()} />
+            </>
+          }
+          <div style={{alignSelf:message.icon?"center":"flex-start"}}>
+            {/* <Linkify>{text}</Linkify> */}
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown>
+          </div>
         </p>
       </div>
       {true && (
@@ -144,7 +158,7 @@ export default function MessageBubble({ message }) {
           <span>{JSON.parse(message.like || "[]").length || " "}</span>
           <span>👍</span>
         </motion.button>}
-        { showTab === "tab-visible" && uid === auth.currentUser.uid && message.createdAt?.toDate?.() > new Date(Date.now() - 60000)
+        { showTab === "tab-visible" && uid === auth.currentUser.uid && message.createdAt?.toDate?.() > new Date(Date.now() - 1800000)
           ? (
               <motion.button onClick={deleteMessage} className="reaction-button zero delete" whileTap={{ scale: 1.2 }}>
                 <span style={/(win)/i.test(navigator.platform)?{fontSize:"20px", fontWeight:"bold"}:{}}>🗑</span>
