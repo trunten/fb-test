@@ -105,8 +105,8 @@ export default function MessageBubble({ message }) {
         <div className="img-wrapper" style={{position:"relative"}} data-initial={imgError ? initial : ""} >
         <img src={isBot ? bot : (imgError ? avatar : photoURL)} alt={initial || "avatar"} onError={()=>setImgError(true)} />
         </div>
-        <p style={{display:message.icon?"flex":"", alignItems:"center", gap:"10px"}}>
-        {message.icon && <><img style={{margin:"auto", backgroundColor:"inherit", borderRadius:"0", width:"auto", height:"25px"}} src={`${process.env.PUBLIC_URL}/weather/${message.icon}.svg`} alt="weather conditions" onError={(e)=>e.target.remove()} /></>}<div style={{whiteSpace:"pre-wrap"}}><Linkify>{text}</Linkify></div>
+        <p style={{display:"flex", alignItems:"center", gap:"10px"}}>
+        {message.icon && <><img style={{margin:"auto", backgroundColor:"inherit", borderRadius:"0", width:"auto", height:"25px"}} src={`${process.env.PUBLIC_URL}/weather/${message.icon}.svg`} alt="weather conditions" onError={(e)=>e.target.remove()} /></>}<div style={{whiteSpace:"pre-wrap", alignSelf:message.icon?"center":"flex-start"}}><Linkify>{text}</Linkify></div>
         </p>
       </div>
       {true && (
