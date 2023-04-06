@@ -52,8 +52,14 @@
   margin-block:0;
 }
 
+.message > p * {
+  max-width: 100%;
+}
+
 .message > p code {
   color: black;
+  /* max-width: 100%; */
+  white-space: break-spaces;
 }
 
 .message::after {
